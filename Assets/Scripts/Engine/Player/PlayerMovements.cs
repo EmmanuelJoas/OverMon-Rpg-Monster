@@ -35,6 +35,16 @@ public class PlayerMovements : MonoBehaviour
     /// </summary>
     private Vector2 direction;
 
+    /// <summary>
+    /// Referenece if the player move 
+    /// </summary>
+    private bool playerMove;
+
+    /// <summary>
+    /// Reference to the vecotor late move of the player 
+    /// </summary>
+    private  Vector2 LateMove;
+
     #endregion
 
     #region Unity function 
@@ -45,6 +55,7 @@ public class PlayerMovements : MonoBehaviour
     private void Start()
     {
         direction = Vector2.zero;
+        LateMove = Vector2.zero;
     }
 
     /// <summary>
@@ -76,39 +87,59 @@ public class PlayerMovements : MonoBehaviour
     private void GetInput()
     {
         direction = Vector2.zero;
-        
+
+        playerMove = false;
+
         if (Input.GetKey(KeyCode.UpArrow))
         {
             direction += Vector2.up;
+
+            LateMove = new Vector2 (0f, Input.GetAxisRaw("Vertical"));
+
+            playerMove = true;
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
             direction += Vector2.down;
+
+            LateMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
+
+            playerMove = true;
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             direction += Vector2.left;
 
+            LateMove =  new Vector2(Mathf.Abs(Input.GetAxisRaw("Horizontal")), 0f);
+
             GraphicsPlayer.flipX = false;
-           
+
+            playerMove = true;
+
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
             direction += Vector2.right;
 
+            LateMove = new Vector2(Mathf.Abs(Input.GetAxisRaw("Horizontal")) , 0f);
+
             GraphicsPlayer.flipX = true;
+
+            playerMove = true;
         }
         
         AnimationPlayerRun(Mathf.Abs(direction.x));
 
-        AnimationPlayerDown(direction.y);
-
         AnimationPlayerUp(direction.y);
 
-        Debug.Log(direction);
+        AnimationIfPlayerMove(playerMove);
+
+        AnimationLateMoveY(LateMove.y);
+
+        AnimationLateMoveX(LateMove.x);
 
     }
 
@@ -118,16 +149,7 @@ public class PlayerMovements : MonoBehaviour
     /// <param name="_direction"></param>
     void AnimationPlayerRun(float _direction)
     {
-        PlayerAnimation.SetFloat("IsRun",_direction);
-    }
-
-    /// <summary>
-    /// Reference to the function who called for start the animation move "Down" of the player 
-    /// </summary>
-    /// <param name="_direction"></param>
-    void AnimationPlayerDown(float _direction)
-    {
-        PlayerAnimation.SetFloat("IsDown", _direction);
+        PlayerAnimation.SetFloat("MoveX",_direction);
     }
 
     /// <summary>
@@ -136,8 +158,36 @@ public class PlayerMovements : MonoBehaviour
     /// <param name="_direction"></param>
     void AnimationPlayerUp(float _direction)
     {
-        PlayerAnimation.SetFloat("IsUp", _direction);
+        PlayerAnimation.SetFloat("MoveY", _direction);
     }
+
+    /// <summary>
+    /// Reference to the function who called for start the animation player move
+    /// </summary>
+    /// <param name="_direction"></param>
+    void AnimationIfPlayerMove(bool _PlayerMove)
+    {
+        PlayerAnimation.SetBool("PlayerMove", _PlayerMove);
+    }
+
+    /// <summary>
+    /// Reference to the function who called for start  the animation in function of the LateMoveX
+    /// </summary>
+    /// <param name="_direction"></param>
+    void AnimationLateMoveX(float _LateMoveX)
+    {
+        PlayerAnimation.SetFloat("LateMoveX", _LateMoveX);
+    }
+
+    /// <summary>
+    /// Reference to the function who called for start  the animation in function of the LateMoveY
+    /// </summary>
+    /// <param name="_direction"></param>
+    void AnimationLateMoveY(float _LateMoveY)
+    {
+        PlayerAnimation.SetFloat("LateMoveY", _LateMoveY);
+    }
+
 
     #endregion
 }
