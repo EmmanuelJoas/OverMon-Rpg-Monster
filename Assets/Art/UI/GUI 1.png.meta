@@ -492,7 +492,7 @@ TextureImporter:
         width: 120
         height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -500,6 +500,90 @@ TextureImporter:
       bones: []
       spriteID: 5334c4f6c5608514ca61ee1b5a7e396c
       internalID: 1518347844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI 1_19
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 851
+        width: 575
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ffc29ed3e1bc4e4581b0f0f139f4c62
+      internalID: 467053309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI 1_20
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 995
+        width: 352
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 760e345e361a83942bb2f36a91295a1e
+      internalID: -5130277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI 1_21
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 995
+        width: 355
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12907bbdc89a34f4287a70350d4b0887
+      internalID: -245022413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI 1_22
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 854
+        width: 359
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 336ef8a625a4dc949ab123d4532eb9ea
+      internalID: -331796547
       vertices: []
       indices: 
       edges: []
@@ -520,19 +604,23 @@ TextureImporter:
       GUI 1_7: -375126280
       GUI 1_3: -1454785021
       GUI 1_4: -1979465687
+      GUI 1_22: -331796547
       GUI 1_16: 665165554
       GUI 1_1: 1038602689
       GUI 1_9: 640095829
       GUI 1_14: -451488917
+      GUI 1_21: -245022413
       GUI 1_8: 1289787350
       GUI 1_10: 745434343
       GUI 1_11: -1708776567
       GUI 1_17: 1184022295
+      GUI 1_20: -5130277
       GUI 1_0: 1510361318
       GUI 1_13: -1523653669
       GUI 1_18: 1518347844
       GUI 1_5: -129742263
       GUI 1_12: -240127563
+      GUI 1_19: 467053309
       GUI 1_6: -659597024
   spritePackingTag: 
   pSDRemoveMatte: 0
