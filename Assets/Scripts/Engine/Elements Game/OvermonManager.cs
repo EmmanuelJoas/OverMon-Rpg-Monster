@@ -31,12 +31,12 @@ public class OvermonManager : ScriptableObject
 
     [Range(1,100)]
     /// <summary>
-    /// 
+    /// Reference to the lvl of the overmon
     /// </summary>
     public int lvl=1;
 
     /// <summary>
-    /// 
+    /// Reference to the xp of the overmon 
     /// </summary>
     public float Xp;
 
@@ -75,6 +75,11 @@ public class OvermonManager : ScriptableObject
     /// Reference of the type(s) of the overmon 
     /// </summary>
     public OvermonsTypes Types;
+
+    /// <summary>
+    /// Reference to the description of the overmon 
+    /// </summary>
+    public string DescriptionOvermon;
 
     public OvermonMove[] Moves;
 
