@@ -126,7 +126,7 @@ TextureImporter:
         width: 46
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,6 +134,27 @@ TextureImporter:
       bones: []
       spriteID: 82700554dfbef3746a94c096d8737fdf
       internalID: 1139709286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_Buttons_Animated_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9f25d5e85c7ae44884824b950ef11e2
+      internalID: -706740450
       vertices: []
       indices: 
       edges: []
@@ -150,6 +171,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       02_Buttons_Animated_0: 1139709286
+      02_Buttons_Animated_1: -706740450
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
