@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d00959b625add745a34d734ea003158, type: 3}
+  m_Name: Adopo
+  m_EditorClassIdentifier: 
+  NamePnj: Adopo
+  FunctionPnj: none
+  InteractionPnj: Les loli c'est la vie.
+  PnjFace: {fileID: 21300000, guid: 5749c26c982396348b423029b1f7d2e1, type: 3}
