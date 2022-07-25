@@ -8,6 +8,10 @@ public class PNJInteracteManager : MonoBehaviour
     public GameObject InteractButton;
     public PnjDataManager Pnj;
     public static PNJInteracteManager instance;
+    public Text InteractText;
+    public Text NamePnjtText;
+    public GameObject FaceImage;
+    public GameObject interactPanel;
     #endregion
 
     #region Unity Function
@@ -23,6 +27,7 @@ public class PNJInteracteManager : MonoBehaviour
         {
             InteractButton.SetActive(true);
             interactImage.SetActive(true);
+            DisplayInteract();
         }
     }
 
@@ -30,13 +35,20 @@ public class PNJInteracteManager : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-
             InteractButton.SetActive(false);
             interactImage.SetActive(false);
-            InteractiveScript.instance.DesableInteraction();
+            interactPanel.SetActive(false);
         }
     }
 
     #endregion
 
+    public void DisplayInteract()
+    { 
+     
+        InteractText.text = Pnj.InteractionPnj;
+        NamePnjtText.text = Pnj.NamePnj;
+        FaceImage.GetComponent<Image>().sprite = Pnj.PnjFace;
+       
+    }
 }

@@ -117492,8 +117492,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1709168198}
-        m_TargetAssemblyTypeName: InteractiveScript, Assembly-CSharp
-        m_MethodName: DisplayInteraction
+        m_TargetAssemblyTypeName: InteracteButton, Assembly-CSharp
+        m_MethodName: IsActive
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -117550,13 +117550,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1709168193}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e3223cb477af694fa33744b2b904677, type: 3}
+  m_Script: {fileID: 11500000, guid: 1987463de46712d4ca38d694030f6bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractText: {fileID: 383890513}
-  NamePnjtText: {fileID: 211955345}
-  FaceImage: {fileID: 1102490838}
-  interactPanel: {fileID: 1917975904}
+  InteractPanel: {fileID: 1917975904}
 --- !u!1001 &1794069886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134919,6 +134916,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2053340634, guid: 0945bc46cd8f5a44384fe98418007f47, type: 3}
     - target: {fileID: 7996651122561499097, guid: b781d42e942081f4f98a974ef0ce326b, type: 3}
+      propertyPath: Pnj
+      value: 
+      objectReference: {fileID: 11400000, guid: e8ea9818233e6f446881ec496abe37b5, type: 2}
+    - target: {fileID: 7996651122561499097, guid: b781d42e942081f4f98a974ef0ce326b, type: 3}
+      propertyPath: FaceImage
+      value: 
+      objectReference: {fileID: 1102490838}
+    - target: {fileID: 7996651122561499097, guid: b781d42e942081f4f98a974ef0ce326b, type: 3}
+      propertyPath: InteractText
+      value: 
+      objectReference: {fileID: 383890513}
+    - target: {fileID: 7996651122561499097, guid: b781d42e942081f4f98a974ef0ce326b, type: 3}
+      propertyPath: NamePnjtText
+      value: 
+      objectReference: {fileID: 211955345}
+    - target: {fileID: 7996651122561499097, guid: b781d42e942081f4f98a974ef0ce326b, type: 3}
+      propertyPath: interactPanel
+      value: 
+      objectReference: {fileID: 1917975904}
+    - target: {fileID: 7996651122561499097, guid: b781d42e942081f4f98a974ef0ce326b, type: 3}
       propertyPath: InteractButton
       value: 
       objectReference: {fileID: 1709168193}
@@ -135750,6 +135767,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pnj
       objectReference: {fileID: 0}
+    - target: {fileID: 7996651122561499097, guid: b781d42e942081f4f98a974ef0ce326b, type: 3}
+      propertyPath: Pnj
+      value: 
+      objectReference: {fileID: 11400000, guid: 3e8bd9ebf59c16e45a7e4e800e33a96f, type: 2}
+    - target: {fileID: 7996651122561499097, guid: b781d42e942081f4f98a974ef0ce326b, type: 3}
+      propertyPath: FaceImage
+      value: 
+      objectReference: {fileID: 1102490838}
+    - target: {fileID: 7996651122561499097, guid: b781d42e942081f4f98a974ef0ce326b, type: 3}
+      propertyPath: InteractText
+      value: 
+      objectReference: {fileID: 383890513}
+    - target: {fileID: 7996651122561499097, guid: b781d42e942081f4f98a974ef0ce326b, type: 3}
+      propertyPath: NamePnjtText
+      value: 
+      objectReference: {fileID: 211955345}
+    - target: {fileID: 7996651122561499097, guid: b781d42e942081f4f98a974ef0ce326b, type: 3}
+      propertyPath: interactPanel
+      value: 
+      objectReference: {fileID: 1917975904}
     - target: {fileID: 7996651122561499097, guid: b781d42e942081f4f98a974ef0ce326b, type: 3}
       propertyPath: InteractButton
       value: 

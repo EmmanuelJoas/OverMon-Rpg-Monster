@@ -31,7 +31,7 @@ Transform:
   - {fileID: 7996651122561499078}
   - {fileID: 7996651122741871827}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7996651122561499079
 GameObject:
@@ -135,7 +135,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactImage: {fileID: 7996651122741871836}
   InteractButton: {fileID: 0}
-  Pnj: {fileID: 11400000, guid: 3e8bd9ebf59c16e45a7e4e800e33a96f, type: 2}
+  Pnj: {fileID: 0}
+  InteractText: {fileID: 0}
+  NamePnjtText: {fileID: 0}
+  FaceImage: {fileID: 0}
+  interactPanel: {fileID: 0}
 --- !u!95 &7996651122561499098
 Animator:
   serializedVersion: 4
