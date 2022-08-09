@@ -84,7 +84,10 @@ public class OvermonManager : ScriptableObject
     public OvermonMove[] Moves;
 
     [Header("Graphics")]
-    public Sprite Front;
+    public Sprite OvermoneSprite;
 
-    public Sprite back;
+    /// <summary>
+    /// 
+    /// </summary>
+    public Animator OvermonAnimation;
 }
