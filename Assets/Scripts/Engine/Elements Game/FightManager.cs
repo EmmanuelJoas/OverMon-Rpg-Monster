@@ -70,7 +70,7 @@ public class FightManager : MonoBehaviour
     /// <param name="move"></param>
     /// <param name="attackerOvermon"></param>
     /// <param name="defenderOvermon"></param>
-    void CalcDamages(OvermonMove move, OvermonManager attackerOvermon, OvermonManager defenderOvermon )
+    void CalculDamages(OvermonMove move, OvermonManager attackerOvermon, OvermonManager defenderOvermon )
     {
         int damage = (int)((((2 * attackerOvermon.lvl / 5) + 2) * move.Power * (attackerOvermon.Attack / defenderOvermon.Defence) / 50) + 2);
 
