@@ -8,6 +8,8 @@ public class SelectOvermon : MonoBehaviour
 
     public int Index;
 
+    public GameObject SelectOvermonPanel;
+
     public GameManager GameManager;
     #endregion
     // Start is called before the first frame update
@@ -26,12 +28,20 @@ public class SelectOvermon : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("Hero"))
         {
-            Destroy(GameObject.FindGameObjectWithTag("Hero"));
+            GameObject CurrentOvermon = GameObject.FindGameObjectWithTag("Hero");
+            GameObject CurrentEnemy = GameObject.FindGameObjectWithTag("Enemy");
+            CurrentEnemy.GetComponent<EnemyFightSystem>().SelectedEnemy();
+            CurrentOvermon.SetActive(false);
             GameManager.SelectOvermon(Index);
         }
         else
         {
             GameManager.SelectOvermon(Index);
         }
+    }
+
+    public void ExitPanel()
+    {
+       SelectOvermonPanel.SetActive(false);
     }
 }

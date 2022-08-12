@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class FightSysteme : MonoBehaviour
 {
-    #region
+    #region Variables
 
     /// <summary>
     /// 
@@ -82,14 +82,31 @@ public class FightSysteme : MonoBehaviour
     #endregion
 
     #region Unity Function
+
+    private void Awake()
+    {
+        OvermonAnim = gameObject.GetComponent<Animator>();
+        FightManager = GameObject.FindGameObjectWithTag("FightManager").GetComponent<FightManager>();
+        DamageText = GameObject.FindGameObjectWithTag("DamageDisplayText");
+        OvermonFace = GameObject.FindGameObjectWithTag("ImageProfile").GetComponent<Image>();
+        SliderPvOvermon = GameObject.FindGameObjectWithTag("PvSlider").GetComponent<Slider>();
+        SliderPaOvermon = GameObject.FindGameObjectWithTag("ManaSlider").GetComponent<Slider>();
+        TextMaxPvOvermon = GameObject.FindGameObjectWithTag("MaxPv").GetComponent<Text>();
+        TextCurrentPvOvermon = GameObject.FindGameObjectWithTag("CurrentPv").GetComponent<Text>();
+        TextMaxPaOvermon = GameObject.FindGameObjectWithTag("MaxMana").GetComponent<Text>();
+        TextCurrentPaOvermon = GameObject.FindGameObjectWithTag("CurrentMana").GetComponent<Text>();
+        TextNameOvermon = GameObject.FindGameObjectWithTag("MyOvername").GetComponent<Text>();
+    }
     // Start is called before the first frame update
     void Start()
     {
+        DamageText.SetActive(false);
         DisplayInfoOvermon();
-        OvermonAnim = gameObject.GetComponent<Animator>();
-        FightManager = GameObject.FindGameObjectWithTag("FightManager").GetComponent<FightManager>();
-        _OpponentOvermon = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyFightSystem>();
-        DamageText = GameObject.FindGameObjectWithTag("DamageDisplayText");
+    }
+
+    private void LateUpdate()
+    {
+        SelectedEnemy();
     }
 
     #endregion
@@ -112,7 +129,13 @@ public class FightSysteme : MonoBehaviour
 
          OvermonFace.sprite = MyOvermon.OvermoneSpriteFace;
     }
-    
+
+    public void SelectedEnemy()
+    {
+        _OpponentOvermon = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyFightSystem>();
+
+    }
+
     public void SelectAttack(string btn)
     {
         Victim = _OpponentOvermon;

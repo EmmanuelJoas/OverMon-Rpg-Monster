@@ -11,16 +11,20 @@ public class FightManager : MonoBehaviour
 
     public GameObject battleMenu;
 
+    public GameManager GameManager;
+
     //public Text battleText;
 
     private void Awake()
     {
-        MyOvermon = GameObject.FindGameObjectWithTag("Hero").GetComponent<FightSysteme>();
-
-        OpponentOvermon = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyFightSystem>();
+       
     }
     void Start()
     {
+        MyOvermon = GameManager.CurrentOvermon;
+
+        OpponentOvermon = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyFightSystem>();
+
         NextTurn();
     }
 
