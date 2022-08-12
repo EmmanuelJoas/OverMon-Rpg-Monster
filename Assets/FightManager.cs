@@ -26,16 +26,20 @@ public class FightManager : MonoBehaviour
 
     public void NextTurn()
     {
-        if (MyOvermon.IsMyTurn==true)
+        if(MyOvermon.Dead==false && OpponentOvermon.Dead == false)
         {
-            battleMenu.SetActive(true);
+            if (MyOvermon.IsMyTurn == true)
+            {
+                battleMenu.SetActive(true);
 
-        }
-        else if (MyOvermon.IsMyTurn == false)
-        {
-            StartCoroutine(LateStat());
+            }
+            else if (MyOvermon.IsMyTurn == false)
+            {
+                StartCoroutine(LateStat());
 
+            }
         }
+       
     }
 
     IEnumerator LateStat()

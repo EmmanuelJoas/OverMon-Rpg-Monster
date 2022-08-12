@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0523ea1210eb10b47b3a7f9aadad997a, type: 3}
+  m_Name: Mage
+  m_EditorClassIdentifier: 
+  lvl: 1
+  Xp: 0
+  OvermonName: Mage
+  OvermonNickName: Merlin
+  HP: 110
+  MaxHP: 110
+  Attack: 10
+  MagicAttack: 10
+  Defence: 10
+  Mana: 70
+  MaxMana: 70
+  DescriptionOvermon: 
+  Moves: []
+  OvermoneSpriteFace: {fileID: 21300000, guid: a25bbf00f8aa4144dbf1f510ea8cf2c9, type: 3}
+  OvermonSpriteGraphic: {fileID: 752522964, guid: e0fa3a424aa1dbf40823f32f4aba2a24, type: 3}

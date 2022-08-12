@@ -21,8 +21,8 @@ MonoBehaviour:
   Attack: 10
   MagicAttack: 10
   Defence: 20
-  Mana: 9
-  MaxMana: 9
+  Mana: 10
+  MaxMana: 10
   DescriptionOvermon: 
   Moves:
   - {fileID: 11400000, guid: 2a38587db0ab850498f82dcca7e6e090, type: 2}

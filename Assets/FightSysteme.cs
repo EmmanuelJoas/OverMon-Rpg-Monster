@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FightSysteme : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class FightSysteme : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    public EnemyFightSystem _OpponentOvermon;
+    private EnemyFightSystem _OpponentOvermon;
 
     /// <summary>
     /// 
@@ -65,12 +66,18 @@ public class FightSysteme : MonoBehaviour
 
    [SerializeField]
     private bool IsMagic=false;
-
-    private bool Dead = false;
+    [SerializeField]
+    public bool Dead = false;
 
     public bool IsMyTurn=true;
 
     private FightManager FightManager;
+
+    public GameObject DamageText;
+
+    public int ManaPoint;
+
+    public int AddMana;
 
     #endregion
 
@@ -81,6 +88,8 @@ public class FightSysteme : MonoBehaviour
         DisplayInfoOvermon();
         OvermonAnim = gameObject.GetComponent<Animator>();
         FightManager = GameObject.FindGameObjectWithTag("FightManager").GetComponent<FightManager>();
+        _OpponentOvermon = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyFightSystem>();
+        DamageText = GameObject.FindGameObjectWithTag("DamageDisplayText");
     }
 
     #endregion
@@ -110,20 +119,43 @@ public class FightSysteme : MonoBehaviour
         
         if (btn == "Normal_AttckButton")
         {
+
             OvermonAnim.SetTrigger("IsAttack1");
             AttackAction(Victim);
-
+            if (SliderPaOvermon.value < SliderPaOvermon.maxValue)
+            {
+                SliderPaOvermon.value += AddMana;
+            }
         }
+
+
         else if (btn == "Special_AttckButton")
         {
-            IsMagic = true;
-            OvermonAnim.SetTrigger("IsAttack2");
-            AttackAction(Victim);
+            if (SliderPaOvermon.value >= ManaPoint)
+            {
+                if (gameObject.name == "Warrior" || gameObject.name == "Warrior2")
+                {
+                SelectSkills(Mathf.Round(Damage));
+                OvermonAnim.SetTrigger("IsAttack2");
+              
+                }
+                else
+                {   
+                IsMagic = true;
+                OvermonAnim.SetTrigger("IsAttack2");
+                AttackAction(Victim);
+                }
+                SliderPaOvermon.value -= ManaPoint;
+            }
+            
         }
         else
         {
             Debug.Log("Run");
         }
+        TextCurrentPaOvermon.text = SliderPaOvermon.value + "" + "/";
+        IsMyTurn = false;
+        FightManager.NextTurn();
     }
 
     private void AttackAction(EnemyFightSystem victim)
@@ -133,36 +165,37 @@ public class FightSysteme : MonoBehaviour
              victim = _OpponentOvermon;
             if (IsMagic==false)
             {
-                float multiplier = Random.Range(0.3f,1.1f);
+                float multiplier = Random.Range(1.2f,1.5f);
 
                 Damage = multiplier * Attacker.Attack;
 
-                float defenseMultiplier = Random.Range(0.5f, 1.2f);
+                float defenseMultiplier = Random.Range(0.5f, 1.1f);
                 Damage = Mathf.Max(5, (defenseMultiplier * victim.OpponentOvermon.Defence) - Damage);
                 victim.ReceiveDamage(Mathf.CeilToInt(Damage));
               
             }
             else if (IsMagic==true)
             {
-                float multiplier = Random.Range(0.2f, 1);
+                float multiplier = Random.Range(1.5f, 2);
                 Damage = multiplier * Attacker.MagicAttack*2;
-                float defenseMultiplier = Random.Range(0.3f, 1.1f);
+                float defenseMultiplier = Random.Range(0.3f, 1f);
                 Damage = Mathf.Max(10, (defenseMultiplier * victim.OpponentOvermon.Defence) - Damage);
                 victim.ReceiveDamage(Mathf.CeilToInt(Damage));
                 
             }
 
-        IsMyTurn = false;
-        FightManager.NextTurn();
+        
     }
 
     public void ReceiveDamage(float damage)
     {
         float CurrentDamage = damage;
         SliderPvOvermon.value -= CurrentDamage;
+        DamageText.GetComponent<Text>().text = CurrentDamage + "";
         if (SliderPvOvermon.value <= 0)
         {
             Debug.Log("est mort");
+            Dead = true;
         }
         else
         {
@@ -171,11 +204,31 @@ public class FightSysteme : MonoBehaviour
 
     }  
 
+    public void SelectSkills(float Heal)
+    {
+        if (SliderPvOvermon.value < SliderPvOvermon.maxValue)
+        {
+            float CurrentHeal = Heal;
+            SliderPvOvermon.value += CurrentHeal;
+            TextCurrentPvOvermon.text = SliderPvOvermon.value + "" + "/";
+        }
+       
+    }
+
     IEnumerator LateState()
     {
-            yield return new WaitForSeconds(1);
-            OvermonAnim.SetTrigger("Hit");
-            TextCurrentPvOvermon.text = SliderPvOvermon.value + "" + "/";
+         yield return new WaitForSeconds(1);
+         OvermonAnim.SetTrigger("Hit");
+         TextCurrentPvOvermon.text = SliderPvOvermon.value + "" + "/";
+         StartCoroutine(DisplayDamage());
+    }
+
+    IEnumerator DisplayDamage()
+    {
+        DamageText.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
+        DamageText.SetActive(false);
+       
     }
 
     public bool GetDead()
