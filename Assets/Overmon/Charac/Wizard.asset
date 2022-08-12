@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0523ea1210eb10b47b3a7f9aadad997a, type: 3}
   m_Name: Wizard
   m_EditorClassIdentifier: 
-  Index: 1
   lvl: 1
   Xp: 0
   OvermonName: Wizard
   OvermonNickName: Elda
-  HP: 20
-  Attack: 5
+  HP: 100
+  MaxHP: 100
+  Attack: 50
+  MagicAttack: 15
   Defence: 16
   Mana: 20
-  Types: 0
+  MaxMana: 20
   DescriptionOvermon: 
   Moves:
   - {fileID: 11400000, guid: bb4dced638ad9894e8926a6a7d2e4e26, type: 2}

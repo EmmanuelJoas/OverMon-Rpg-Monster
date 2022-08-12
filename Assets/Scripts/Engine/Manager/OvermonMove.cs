@@ -28,7 +28,7 @@ public class OvermonMove : ScriptableObject
     /// <summary>
     /// Reference to the type move
     /// </summary>
-    public OvermonsTypes Type = OvermonsTypes.Normal;
+    //public OvermonsTypes Type = OvermonsTypes.Normal;
 
     /// <summary>
     /// Reference to the type of the move 

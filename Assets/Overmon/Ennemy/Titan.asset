@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0523ea1210eb10b47b3a7f9aadad997a, type: 3}
   m_Name: Titan
   m_EditorClassIdentifier: 
-  Index: 1
   lvl: 1
   Xp: 0
   OvermonName: Titan
   OvermonNickName: 
-  HP: 15
-  Attack: 8
+  HP: 100
+  MaxHP: 100
+  Attack: 10
+  MagicAttack: 10
   Defence: 20
   Mana: 9
-  Types: 0
+  MaxMana: 9
   DescriptionOvermon: 
   Moves:
   - {fileID: 11400000, guid: 2a38587db0ab850498f82dcca7e6e090, type: 2}

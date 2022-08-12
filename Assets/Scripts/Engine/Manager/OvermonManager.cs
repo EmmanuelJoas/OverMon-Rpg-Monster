@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[Flags]
+//[Flags]
 /// <summary>
 /// 
 /// </summary>
-public enum OvermonsTypes
+/*public enum OvermonsTypes
 {
     Normal = 1 << 0,// 0-bite shift 0
 
@@ -19,14 +19,14 @@ public enum OvermonsTypes
 
     Ground = 1 << 4,//4-bite shift 8
 
-}
+}*/
 [CreateAssetMenu(fileName ="New Overmon", menuName = "Overmon")]
 public class OvermonManager : ScriptableObject
 {
     /// <summary>
     /// Reference to the index of the overmon
     /// </summary>
-    public int Index = 1;
+    //public int Index = 1;
 
 
     [Range(1,100)]
@@ -51,17 +51,27 @@ public class OvermonManager : ScriptableObject
     /// </summary>
     public string OvermonNickName;
 
+    [Header("Stats")]
+
     /// <summary>
     /// Reference to the hp of the overmon 
     /// </summary>
     public int HP;
 
-    [Header("Stats")]
+    /// <summary>
+    /// Reference to the hp of the overmon 
+    /// </summary>
+    public int MaxHP;
 
     /// <summary>
     /// Reference to the attack of the overmon 
     /// </summary>
     public int Attack;
+
+    /// <summary>
+    /// Reference to the attack of the overmon 
+    /// </summary>
+    public int MagicAttack;
 
     /// <summary>
     /// Reference of the defence of the overmon 
@@ -74,9 +84,14 @@ public class OvermonManager : ScriptableObject
     public int Mana;
 
     /// <summary>
+    /// Reference to the mana points of the overmon 
+    /// </summary>
+    public int MaxMana;
+
+    /// <summary>
     /// Reference of the type(s) of the overmon 
     /// </summary>
-    public OvermonsTypes Types;
+    //public OvermonsTypes Types;
 
     /// <summary>
     /// Reference to the description of the overmon 

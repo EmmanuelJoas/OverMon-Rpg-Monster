@@ -360,7 +360,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100/
+  m_Text: 0/
 --- !u!222 &202922988
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -516,7 +516,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100Pa
+  m_Text: 0Pa
 --- !u!222 &222563426
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -628,7 +628,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100Pv
+  m_Text: 0Pv
 --- !u!222 &242447876
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -762,7 +762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.45600003, y: 0.377}
-  m_AnchoredPosition: {x: -0.000030517578, y: -0.54260254}
+  m_AnchoredPosition: {x: -0.000030517578, y: -0.54254913}
   m_SizeDelta: {x: -0.000045776, y: 1.085}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &406423642
@@ -853,9 +853,11 @@ GameObject:
   - component: {fileID: 430490374}
   - component: {fileID: 430490373}
   - component: {fileID: 430490375}
+  - component: {fileID: 430490378}
+  - component: {fileID: 430490379}
   m_Layer: 0
-  m_Name: OpponentGraphique
-  m_TagString: Untagged
+  m_Name: Titan
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -938,6 +940,81 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &430490378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430490371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7158986eb981604daeb78797fe27b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OpponentOvermon: {fileID: 11400000, guid: ce9276f7b9ba2d544a656360019fa7ee, type: 2}
+  _MyOvermon: {fileID: 843744876}
+  SliderPvOvermon: {fileID: 83820978}
+  SliderPaOvermon: {fileID: 296524879}
+  TextNameOvermon: {fileID: 1984448599}
+  OvermonFace: {fileID: 1819511060}
+  ProfileOponent: {fileID: 1055664254}
+--- !u!114 &430490379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430490371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 430490373}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 430490378}
+        m_TargetAssemblyTypeName: EnemyFightSystem, Assembly-CSharp
+        m_MethodName: EnemySelectAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &461704629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,7 +1242,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100/
+  m_Text: 0/
 --- !u!222 &479315030
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1696,8 +1773,8 @@ GameObject:
   - component: {fileID: 843744875}
   - component: {fileID: 843744876}
   m_Layer: 0
-  m_Name: OvermonGraphic
-  m_TagString: Untagged
+  m_Name: Wizard
+  m_TagString: Hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1789,11 +1866,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 843744871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baefaab9c7974fd4b91dff7709137486, type: 3}
+  m_Script: {fileID: 11500000, guid: ad0a491f201337b4283a07e4ed500304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animator: {fileID: 0}
-  EnnemyAnimator: {fileID: 430490375}
+  MyOvermon: {fileID: 11400000, guid: c994ddbf50025a24c9906744968640f0, type: 2}
+  _OpponentOvermon: {fileID: 430490378}
+  SliderPvOvermon: {fileID: 1647136420}
+  SliderPaOvermon: {fileID: 791433389}
+  TextCurrentPvOvermon: {fileID: 202922987}
+  TextMaxPvOvermon: {fileID: 242447875}
+  TextCurrentPaOvermon: {fileID: 479315029}
+  TextMaxPaOvermon: {fileID: 222563425}
+  TextNameOvermon: {fileID: 1400134405}
+  OvermonFace: {fileID: 1764330226}
+  IsMagic: 0
+  IsMyTurn: 1
 --- !u!1 &854710639
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,7 +2113,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0657747, y: 0.2}
   m_AnchorMax: {x: 0.26119667, y: 0.78879577}
-  m_AnchoredPosition: {x: 0.89990234, y: -1.005024}
+  m_AnchoredPosition: {x: 0.89990234, y: -1.0050201}
   m_SizeDelta: {x: -0.41015625, y: -2.0099945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1055664256
@@ -2455,7 +2542,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Elda
+  m_Text: name
 --- !u!222 &1400134406
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2513,6 +2600,7 @@ GameObject:
   - component: {fileID: 1474115992}
   - component: {fileID: 1474115991}
   - component: {fileID: 1474115990}
+  - component: {fileID: 1474115993}
   m_Layer: 0
   m_Name: Special_AttckButton
   m_TagString: Untagged
@@ -2584,10 +2672,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 843744876}
-        m_TargetAssemblyTypeName: TestAnimations, Assembly-CSharp
-        m_MethodName: StartAttk2
-        m_Mode: 1
+      - m_Target: {fileID: 1474115993}
+        m_TargetAssemblyTypeName: SelectAction, Assembly-CSharp
+        m_MethodName: AttachCallback
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2634,6 +2722,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474115988}
   m_CullTransparentMesh: 1
+--- !u!114 &1474115993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474115988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2564ef7cd107634c9b2f74bd831a2ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1499110219
 GameObject:
   m_ObjectHideFlags: 0
@@ -2882,6 +2982,7 @@ GameObject:
   - component: {fileID: 1616561797}
   - component: {fileID: 1616561796}
   - component: {fileID: 1616561795}
+  - component: {fileID: 1616561798}
   m_Layer: 0
   m_Name: Normal_AttckButton
   m_TagString: Untagged
@@ -2953,10 +3054,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 843744876}
-        m_TargetAssemblyTypeName: TestAnimations, Assembly-CSharp
-        m_MethodName: StartAttk1
-        m_Mode: 1
+      - m_Target: {fileID: 1616561798}
+        m_TargetAssemblyTypeName: SelectAction, Assembly-CSharp
+        m_MethodName: AttachCallback
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3003,6 +3104,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616561793}
   m_CullTransparentMesh: 1
+--- !u!114 &1616561798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616561793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2564ef7cd107634c9b2f74bd831a2ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1647136418
 GameObject:
   m_ObjectHideFlags: 0
@@ -3102,9 +3215,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1650694116}
+  - component: {fileID: 1650694117}
   m_Layer: 0
   m_Name: BattleSysteme
-  m_TagString: Untagged
+  m_TagString: FightManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3124,6 +3238,19 @@ Transform:
   m_Father: {fileID: 1212110443}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1650694117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650694115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6975eab7007a2499d21375a25ae2a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleMenu: {fileID: 927066546}
 --- !u!1 &1663729935
 GameObject:
   m_ObjectHideFlags: 0
@@ -3498,7 +3625,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Titan
+  m_Text: Name
 --- !u!222 &1984448600
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3593,6 +3720,7 @@ GameObject:
   - component: {fileID: 2135058668}
   - component: {fileID: 2135058667}
   - component: {fileID: 2135058666}
+  - component: {fileID: 2135058669}
   m_Layer: 0
   m_Name: Run_Button
   m_TagString: Untagged
@@ -3663,7 +3791,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2135058667}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2135058669}
+        m_TargetAssemblyTypeName: SelectAction, Assembly-CSharp
+        m_MethodName: AttachCallback
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2135058667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3702,6 +3842,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135058664}
   m_CullTransparentMesh: 1
+--- !u!114 &2135058669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135058664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2564ef7cd107634c9b2f74bd831a2ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2138046032
 GameObject:
   m_ObjectHideFlags: 0
