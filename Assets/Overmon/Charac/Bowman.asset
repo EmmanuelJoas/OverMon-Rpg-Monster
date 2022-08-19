@@ -16,13 +16,13 @@ MonoBehaviour:
   Xp: 0
   OvermonName: Bowman
   OvermonNickName: Agata
-  HP: 90
-  MaxHP: 90
-  Attack: 10
-  MagicAttack: 10
-  Defence: 10
-  Mana: 35
-  MaxMana: 35
+  HP: 100
+  MaxHP: 100
+  Attack: 150
+  MagicAttack: 150
+  Defence: 40
+  Mana: 100
+  MaxMana: 100
   DescriptionOvermon: 
   Moves: []
   OvermoneSpriteFace: {fileID: 21300000, guid: 577b7003ee662554a9be2bba412a35b7, type: 3}

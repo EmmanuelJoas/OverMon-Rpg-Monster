@@ -11,7 +11,7 @@ public class EnemyFightSystem : MonoBehaviour
     /// </summary>
     public OvermonManager OpponentOvermon;
 
-    private FightSysteme _MyOvermon;
+    public FightSysteme _MyOvermon;
 
     private Animator OpponentAnim;
 
@@ -54,6 +54,8 @@ public class EnemyFightSystem : MonoBehaviour
 
     public int AddMana;
 
+    public static EnemyFightSystem instance;
+
 
 
 
@@ -61,18 +63,18 @@ public class EnemyFightSystem : MonoBehaviour
 
     #region Unity Function 
 
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
         DisplayInfoOvermon();
+        UpdateFighter();
         FightManager = GameObject.FindGameObjectWithTag("FightManager").GetComponent<FightManager>();
         OpponentAnim = gameObject.GetComponent<Animator>();
         
-    }
-
-    private void LateUpdate()
-    {
-        SelectedEnemy();
     }
 
     // Update is called once per frame
@@ -100,7 +102,7 @@ public class EnemyFightSystem : MonoBehaviour
         OvermonFace.sprite = OpponentOvermon.OvermoneSpriteFace;
     }
 
-    public void SelectedEnemy()
+    public void UpdateFighter()
     {
         _MyOvermon = GameObject.FindGameObjectWithTag("Hero").GetComponent<FightSysteme>();
     }
@@ -137,23 +139,47 @@ public class EnemyFightSystem : MonoBehaviour
         
         if (IsSuperAttack == false)
         {
-            float multiplier = Random.Range(0.5f, 1.1f);
+            /*float multiplier = Random.Range(1.1f, 1.5f);
 
             Damage = multiplier * Attacker.Attack;
 
-            float defenseMultiplier = Random.Range(1.2f, 1.5f);
-            Damage = Mathf.Max(2, (defenseMultiplier * victim.MyOvermon.Defence) - Damage);
-            victim.ReceiveDamage(Mathf.CeilToInt(Damage));
+            float defenseMultiplier = Random.Range(0.5f, 1.5f);
+            //Damage = Mathf.Max(5, (defenseMultiplier * victim.MyOvermon.Defence) - Damage);
+            Damage -= Mathf.Abs((defenseMultiplier * victim.MyOvermon.Defence)*-1);
+            //victim.ReceiveDamage(Mathf.CeilToInt(Damage));
+            victim.ReceiveDamage(Mathf.Abs(Mathf.Round(Damage)));*/
+
+            float multiplierAttack = 0.5f;
+
+             multiplierAttack *= Attacker.Attack;
+
+            float defenseMultiplier = 0.5f;
+            //Damage = Mathf.Max(5, (defenseMultiplier * victim.MyOvermon.Defence) - Damage);
+            Damage =(multiplierAttack-(defenseMultiplier * victim.MyOvermon.Defence))/5;
+            //victim.ReceiveDamage(Mathf.CeilToInt(Damage));
+            victim.ReceiveDamage(Mathf.Abs(Mathf.Round(Damage)));
 
         }
 
         else if (IsSuperAttack == true)
         {
-            float multiplier = Random.Range(0.6f, 1.2f);
+            /*float multiplier = Random.Range(1.5f, 2f);
             Damage = multiplier * Attacker.MagicAttack;
-            float defenseMultiplier = Random.Range(0.3f, 1.1f);
-            Damage = Mathf.Max(5, (defenseMultiplier * victim.MyOvermon.Defence) - Damage);
-            victim.ReceiveDamage(Mathf.CeilToInt(Damage));
+            float defenseMultiplier = Random.Range(1.5f, 1.9f);
+            //Damage = Mathf.Max(10, (defenseMultiplier * victim.MyOvermon.Defence) - Damage);
+            Damage -= Mathf.Abs((defenseMultiplier * victim.MyOvermon.Defence)*-1);
+            //victim.ReceiveDamage(Mathf.CeilToInt(Damage));
+            victim.ReceiveDamage(Mathf.Abs(Mathf.Round(Damage)));*/
+
+            float multiplierAttack = 0.5f;
+
+            multiplierAttack *= Attacker.Attack;
+
+            float defenseMultiplier = 0.5f;
+            //Damage = Mathf.Max(5, (defenseMultiplier * victim.MyOvermon.Defence) - Damage);
+            Damage = (multiplierAttack-(defenseMultiplier * victim.MyOvermon.Defence) )/5;
+            //victim.ReceiveDamage(Mathf.CeilToInt(Damage));
+            victim.ReceiveDamage(Mathf.Abs(Mathf.Round(Damage)));
         }
 
 

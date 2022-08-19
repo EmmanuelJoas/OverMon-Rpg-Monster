@@ -4,32 +4,48 @@ using UnityEngine;
 
 public class SelectAction : MonoBehaviour
 {
-    private GameObject hero;
+    public FightSysteme hero;
     private string temp;
+    public static SelectAction instance;
+
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         temp = gameObject.name;
-        hero = GameObject.FindGameObjectWithTag("Hero");
+        UpdateFighter();
+        
     }
 
-    public void AttachCallback(string btn)
+    public void AttachCallback(string btn,FightSysteme Hero)
     {
         btn = temp;
-
+        Hero = hero;
         if (btn=="Normal_AttckButton")
         {
-            hero.GetComponent<FightSysteme>().SelectAttack("Normal_AttckButton");
+            UpdateFighter();
+            Hero.SelectAttack("Normal_AttckButton");
             
         }
         else if (btn=="Special_AttckButton")
         {
-            hero.GetComponent<FightSysteme>().SelectAttack("Special_AttckButton");
+            UpdateFighter();
+            Hero.SelectAttack("Special_AttckButton");
            
         }
         else
         {
-            hero.GetComponent<FightSysteme>().SelectAttack("run");
+            Hero.SelectAttack("run");
             
         }
+    }
+
+    public void UpdateFighter()
+    {
+        hero = GameObject.FindGameObjectWithTag("Hero").GetComponentInChildren<FightSysteme>();
     }
 }

@@ -29,8 +29,6 @@ public class SelectOvermon : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Hero"))
         {
             GameObject CurrentOvermon = GameObject.FindGameObjectWithTag("Hero");
-            GameObject CurrentEnemy = GameObject.FindGameObjectWithTag("Enemy");
-            CurrentEnemy.GetComponent<EnemyFightSystem>().SelectedEnemy();
             CurrentOvermon.SetActive(false);
             GameManager.SelectOvermon(Index);
         }

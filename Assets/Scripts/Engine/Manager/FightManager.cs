@@ -5,26 +5,26 @@ using UnityEngine.UI;
 
 public class FightManager : MonoBehaviour
 {
-    private FightSysteme MyOvermon;
+    
+    public FightSysteme MyOvermon;
 
     private EnemyFightSystem OpponentOvermon;
 
     public GameObject battleMenu;
 
-    public GameManager GameManager;
+    public static FightManager instance;
+
+   
 
     //public Text battleText;
 
     private void Awake()
     {
-       
+        instance = this;
     }
     void Start()
     {
-        MyOvermon = GameManager.CurrentOvermon;
-
-        OpponentOvermon = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyFightSystem>();
-
+        UpdateFighther();
         NextTurn();
     }
 
@@ -54,6 +54,14 @@ public class FightManager : MonoBehaviour
         yield return new WaitForSeconds(1.4f);
         MyOvermon.IsMyTurn = true;
         NextTurn();
+
+    }
+
+    public void UpdateFighther()
+    {
+        MyOvermon = GameObject.FindGameObjectWithTag("Hero").GetComponent<FightSysteme>();
+
+        OpponentOvermon = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyFightSystem>();
 
     }
 }

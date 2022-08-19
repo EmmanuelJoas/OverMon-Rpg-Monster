@@ -10,12 +10,14 @@ public class GameManager : MonoBehaviour
 
     public FightSysteme CurrentOvermon;
 
+    public static GameManager instance;
+
     #endregion
     private void Awake()
     {
-        gameObject.transform.GetChild(2).gameObject.SetActive(true);
+        instance = this;
+        gameObject.transform.GetChild(0).gameObject.SetActive(true);
         CurrentOvermon = gameObject.transform.GetChild(0).gameObject.GetComponent<FightSysteme>();
-        CurrentOvermon.SelectedEnemy();
     }
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,12 @@ public class GameManager : MonoBehaviour
     {
         gameObject.transform.GetChild(Index).gameObject.SetActive(true);
         CurrentOvermon=gameObject.transform.GetChild(Index).gameObject.GetComponent<FightSysteme>();
-        CurrentOvermon.SelectedEnemy();
+        CurrentOvermon.DisplayInfoOvermon();
+        Special_AttackButton.instance.UpdateFighter();
+        Run_Button.instance.UpdateFighter();
+        Normal_AttackButton.instance.UpdateFighter();
+        FightManager.instance.UpdateFighther();
+        EnemyFightSystem.instance.UpdateFighter();
     }
 
     public void ActiveSelectPanel()

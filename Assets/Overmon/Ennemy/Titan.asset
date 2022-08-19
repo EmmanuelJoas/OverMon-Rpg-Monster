@@ -18,9 +18,9 @@ MonoBehaviour:
   OvermonNickName: 
   HP: 100
   MaxHP: 100
-  Attack: 10
-  MagicAttack: 10
-  Defence: 20
+  Attack: 150
+  MagicAttack: 150
+  Defence: 40
   Mana: 10
   MaxMana: 10
   DescriptionOvermon: 
