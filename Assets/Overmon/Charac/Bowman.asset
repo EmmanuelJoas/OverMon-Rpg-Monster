@@ -21,7 +21,7 @@ MonoBehaviour:
   Attack: 150
   MagicAttack: 150
   Defence: 40
-  Mana: 100
+  Mana: 15
   MaxMana: 100
   DescriptionOvermon: 
   Moves: []

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1996558065
+--- !u!1 &281056318841742065
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,75 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1996558066}
-  - component: {fileID: 1996558068}
-  - component: {fileID: 1996558067}
+  - component: {fileID: 281056318841742070}
+  - component: {fileID: 281056318841742071}
+  m_Layer: 0
+  m_Name: Bowman
+  m_TagString: Hero
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &281056318841742070
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281056318841742065}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8785465103452726325}
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.17588909, y: 0}
+  m_AnchorMax: {x: 0.88400006, y: 0.7137416}
+  m_AnchoredPosition: {x: -0.99798584, y: 0.5369873}
+  m_SizeDelta: {x: 0.39001465, y: 1.1499939}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &281056318841742071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281056318841742065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0a491f201337b4283a07e4ed500304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyOvermon: {fileID: 11400000, guid: 107739c215b16e64395b1b4c85f34640, type: 2}
+  SliderPvOvermon: {fileID: 0}
+  SliderPaOvermon: {fileID: 0}
+  TextCurrentPvOvermon: {fileID: 0}
+  TextMaxPvOvermon: {fileID: 0}
+  TextCurrentPaOvermon: {fileID: 0}
+  TextMaxPaOvermon: {fileID: 0}
+  TextNameOvermon: {fileID: 0}
+  OvermonFace: {fileID: 0}
+  IsMagic: 0
+  Dead: 0
+  IsMyTurn: 1
+  DamageText: {fileID: 281056320461513910}
+  ManaPoint: 15
+  AddMana: 5
+  SelectAction: {fileID: 0}
+--- !u!1 &281056320461513910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 281056320461513909}
+  - component: {fileID: 281056320461513907}
+  - component: {fileID: 281056320461513908}
   m_Layer: 0
   m_Name: DamageDisplay
   m_TagString: DamageDisplayText
@@ -18,41 +84,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1996558066
+--- !u!224 &281056320461513909
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1996558065}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 281056320461513910}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8794051011617377906}
+  m_Father: {fileID: 8785465103452726325}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.46600002}
-  m_AnchorMax: {x: 0.39031696, y: 0.67300004}
-  m_AnchoredPosition: {x: -0.024032593, y: 0.0000076293945}
-  m_SizeDelta: {x: 0.047958, y: -0}
+  m_AnchorMin: {x: 0.36667824, y: 0.37500003}
+  m_AnchorMax: {x: 0.5236783, y: 0.62750363}
+  m_AnchoredPosition: {x: 0, y: -0.5}
+  m_SizeDelta: {x: 0, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1996558068
+--- !u!222 &281056320461513907
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1996558065}
+  m_GameObject: {fileID: 281056320461513910}
   m_CullTransparentMesh: 1
---- !u!114 &1996558067
+--- !u!114 &281056320461513908
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1996558065}
+  m_GameObject: {fileID: 281056320461513910}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -80,7 +146,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 999
---- !u!1 &8794051011617377905
+--- !u!1 &8785465103452726326
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,54 +154,53 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8794051011617377906}
-  - component: {fileID: 8794051011617377918}
-  - component: {fileID: 8794051011617377917}
-  - component: {fileID: 8794051011617377916}
-  - component: {fileID: 8794051011617377907}
+  - component: {fileID: 8785465103452726325}
+  - component: {fileID: 8785465103452726329}
+  - component: {fileID: 8785465103452726330}
+  - component: {fileID: 8785465103452726331}
   m_Layer: 0
-  m_Name: Bowman
+  m_Name: BowmanGraphic
   m_TagString: Hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &8794051011617377906
+--- !u!224 &8785465103452726325
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8794051011617377905}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 8785465103452726326}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1996558066}
-  m_Father: {fileID: 0}
+  - {fileID: 281056320461513909}
+  m_Father: {fileID: 281056318841742070}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1356734, y: 0}
-  m_AnchorMax: {x: 0.9332359, y: 1}
-  m_AnchoredPosition: {x: 1, y: -0.22000122}
-  m_SizeDelta: {x: 4, y: -0.44999695}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &8794051011617377918
+--- !u!222 &8785465103452726329
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8794051011617377905}
+  m_GameObject: {fileID: 8785465103452726326}
   m_CullTransparentMesh: 1
---- !u!114 &8794051011617377917
+--- !u!114 &8785465103452726330
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8794051011617377905}
+  m_GameObject: {fileID: 8785465103452726326}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -159,14 +224,14 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &8794051011617377916
+--- !u!95 &8785465103452726331
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8794051011617377905}
+  m_GameObject: {fileID: 8785465103452726326}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 8fc9e5cddb303b24b906c1ba4da670f5, type: 2}
@@ -179,30 +244,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8794051011617377907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8794051011617377905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad0a491f201337b4283a07e4ed500304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MyOvermon: {fileID: 11400000, guid: 107739c215b16e64395b1b4c85f34640, type: 2}
-  SliderPvOvermon: {fileID: 0}
-  SliderPaOvermon: {fileID: 0}
-  TextCurrentPvOvermon: {fileID: 0}
-  TextMaxPvOvermon: {fileID: 0}
-  TextCurrentPaOvermon: {fileID: 0}
-  TextMaxPaOvermon: {fileID: 0}
-  TextNameOvermon: {fileID: 0}
-  OvermonFace: {fileID: 0}
-  IsMagic: 0
-  Dead: 0
-  IsMyTurn: 1
-  DamageText: {fileID: 1996558065}
-  ManaPoint: 0
-  AddMana: 0

@@ -46,6 +46,6 @@ public class SelectAction : MonoBehaviour
 
     public void UpdateFighter()
     {
-        hero = GameObject.FindGameObjectWithTag("Hero").GetComponentInChildren<FightSysteme>();
+        hero = GameObject.FindGameObjectWithTag("Hero").GetComponent<FightSysteme>();
     }
 }

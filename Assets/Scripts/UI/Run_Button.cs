@@ -33,6 +33,6 @@ public class Run_Button : MonoBehaviour
     }
     public void UpdateFighter()
     {
-        hero = GameManager.instance.CurrentOvermon;
+        hero = GameManager.CurrentOvermon;
     }
 }

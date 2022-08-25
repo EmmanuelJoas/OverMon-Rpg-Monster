@@ -13,7 +13,10 @@ public class FightSysteme : MonoBehaviour
     /// </summary>
     public OvermonManager MyOvermon;
 
-    private Animator OvermonAnim;
+    /// <summary>
+    /// 
+    /// </summary>
+    public Animator OvermonAnim;
 
     /// <summary>
     /// 
@@ -60,34 +63,61 @@ public class FightSysteme : MonoBehaviour
     /// </summary>
     public Image OvermonFace;
 
+    /// <summary>
+    /// 
+    /// </summary>
     private float Damage=0.0f;
 
-   private EnemyFightSystem Victim;
+    /// <summary>
+    /// 
+    /// </summary>
+    private EnemyFightSystem Victim;
 
-   [SerializeField]
+    /// <summary>
+    /// 
+    /// </summary>
     private bool IsMagic=false;
-    [SerializeField]
+
+    /// <summary>
+    /// 
+    /// </summary>
     public bool Dead = false;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public bool IsMyTurn=true;
 
+    /// <summary>
+    /// 
+    /// </summary>
     private FightManager FightManager;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public GameObject DamageText;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public int ManaPoint;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public int AddMana;
-
-    public SelectAction SelectAction;
 
     #endregion
 
     #region Unity Function
 
+    /// <summary>
+    /// 
+    /// </summary>
     private void Awake()
     {
-        OvermonAnim = gameObject.GetComponent<Animator>();
+        OvermonAnim = gameObject.transform.GetChild(0).GetComponent<Animator>();
         FightManager = GameObject.FindGameObjectWithTag("FightManager").GetComponent<FightManager>();
         DamageText = GameObject.FindGameObjectWithTag("DamageDisplayText");
         OvermonFace = GameObject.FindGameObjectWithTag("ImageProfile").GetComponent<Image>();
@@ -99,7 +129,10 @@ public class FightSysteme : MonoBehaviour
         TextCurrentPaOvermon = GameObject.FindGameObjectWithTag("CurrentMana").GetComponent<Text>();
         TextNameOvermon = GameObject.FindGameObjectWithTag("MyOvername").GetComponent<Text>();
     }
-    // Start is called before the first frame update
+
+    /// <summary>
+    /// Start is called before the first frame update
+    /// </summary>
     void Start()
     {
         _OpponentOvermon = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyFightSystem>();
@@ -111,8 +144,11 @@ public class FightSysteme : MonoBehaviour
 
     #region My Private Function 
 
+    /// <summary>
+    /// 
+    /// </summary>
    public void DisplayInfoOvermon()
-    {
+   {
          SliderPvOvermon.maxValue=MyOvermon.MaxHP;
          SliderPvOvermon.value = MyOvermon.HP;
          SliderPaOvermon.maxValue = MyOvermon.MaxMana;
@@ -126,8 +162,12 @@ public class FightSysteme : MonoBehaviour
          TextNameOvermon.text = MyOvermon.OvermonNickName;
 
          OvermonFace.sprite = MyOvermon.OvermoneSpriteFace;
-    }
+   }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="btn"></param>
     public void SelectAttack(string btn)
     {
         Victim = _OpponentOvermon;
@@ -173,6 +213,10 @@ public class FightSysteme : MonoBehaviour
         FightManager.NextTurn();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="victim"></param>
     private void AttackAction(EnemyFightSystem victim)
     {
         
@@ -190,15 +234,16 @@ public class FightSysteme : MonoBehaviour
                 //victim.ReceiveDamage(Mathf.CeilToInt(Damage));
                 victim.ReceiveDamage(Mathf.Abs(Mathf.Round(Damage)));*/
 
-                float multiplierAttack = 0.5f;
+                //float multiplierAttack = 0.5f;
 
-                multiplierAttack *= Attacker.Attack;
+                //multiplierAttack *= Attacker.Attack;
 
-                float defenseMultiplier = 0.5f;
+                //float defenseMultiplier = 0.5f;
                 //Damage = Mathf.Max(5, (defenseMultiplier * victim.MyOvermon.Defence) - Damage);
-                Damage = (multiplierAttack-(defenseMultiplier * victim.OpponentOvermon.Defence))/5;
+                Damage = Attacker.Attack * (100 / (100 + victim.OpponentOvermon.Defence));
                 //victim.ReceiveDamage(Mathf.CeilToInt(Damage));
-                victim.ReceiveDamage(Mathf.Abs(Mathf.Round(Damage)));
+                victim.ReceiveDamage(Damage);
+                Debug.Log("Les dommages sont " + Damage);
 
             }
             else if (IsMagic==true)
@@ -211,21 +256,25 @@ public class FightSysteme : MonoBehaviour
                 //victim.ReceiveDamage(Mathf.CeilToInt(Damage));
                 victim.ReceiveDamage(Mathf.Abs(Mathf.Round(Damage)));*/
 
-                float multiplierAttack = 0.5f;
+                //float multiplierAttack = 0.5f;
 
-                 multiplierAttack *= Attacker.Attack;
+                 //multiplierAttack *= Attacker.Attack;
 
-                float defenseMultiplier = 0.5f;
+                //float defenseMultiplier = 0.5f;
                 //Damage = Mathf.Max(5, (defenseMultiplier * victim.MyOvermon.Defence) - Damage);
-                Damage = (multiplierAttack - (defenseMultiplier * victim.OpponentOvermon.Defence))/5;
+                Damage = Attacker.Attack * (100 / (100 + victim.OpponentOvermon.Defence));
                  //victim.ReceiveDamage(Mathf.CeilToInt(Damage));
-                victim.ReceiveDamage(Mathf.Abs(Mathf.Round(Damage)));
+                victim.ReceiveDamage(Damage);
 
             }
 
         
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="damage"></param>
     public void ReceiveDamage(float damage)
     {
         float CurrentDamage = damage;
@@ -239,10 +288,15 @@ public class FightSysteme : MonoBehaviour
         else
         {
             StartCoroutine(LateState());
+            SaveState();
         }
 
     }  
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="Heal"></param>
     public void SelectSkills(float Heal)
     {
         if (SliderPvOvermon.value < SliderPvOvermon.maxValue)
@@ -254,14 +308,22 @@ public class FightSysteme : MonoBehaviour
        
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     IEnumerator LateState()
     {
-         yield return new WaitForSeconds(1);
+         yield return new WaitForSeconds(0.9f);
          OvermonAnim.SetTrigger("Hit");
          TextCurrentPvOvermon.text = SliderPvOvermon.value + "" + "/";
          StartCoroutine(DisplayDamage());
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     IEnumerator DisplayDamage()
     {
         DamageText.SetActive(true);
@@ -270,9 +332,22 @@ public class FightSysteme : MonoBehaviour
        
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public bool GetDead()
     {
         return Dead;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    void SaveState()
+    {
+        MyOvermon.HP = SliderPvOvermon.value;
+        MyOvermon.Mana = SliderPaOvermon.value;
     }
     #endregion
 }

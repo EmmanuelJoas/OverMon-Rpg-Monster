@@ -12,6 +12,14 @@ public class FightManager : MonoBehaviour
 
     public GameObject battleMenu;
 
+    private int RoundsNumber = 0;
+
+    public Text RoundText;
+
+    public  GameObject EndFightPanel;
+
+    public Text EndFightText;
+
     public static FightManager instance;
 
    
@@ -22,6 +30,7 @@ public class FightManager : MonoBehaviour
     {
         instance = this;
     }
+
     void Start()
     {
         UpdateFighther();
@@ -35,13 +44,25 @@ public class FightManager : MonoBehaviour
             if (MyOvermon.IsMyTurn == true)
             {
                 battleMenu.SetActive(true);
-
+               
             }
             else if (MyOvermon.IsMyTurn == false)
             {
                 StartCoroutine(LateStat());
 
             }
+
+           
+        }
+        else if (MyOvermon.Dead == true)
+        {
+            EndFightPanel.SetActive(true);
+            EndFightText.text = "Defaite";
+        }
+        else if (OpponentOvermon.Dead==true)
+        {
+            EndFightPanel.SetActive(true);
+            EndFightText.text = "Victoire";
         }
        
     }
@@ -53,15 +74,23 @@ public class FightManager : MonoBehaviour
         battleMenu.SetActive(false);
         yield return new WaitForSeconds(1.4f);
         MyOvermon.IsMyTurn = true;
+        yield return new WaitForSeconds(0.9f);
+        RoundsNumber++;
+        DisplayRounds(RoundsNumber);
         NextTurn();
 
     }
 
     public void UpdateFighther()
     {
-        MyOvermon = GameObject.FindGameObjectWithTag("Hero").GetComponent<FightSysteme>();
+        MyOvermon = GameManager.CurrentOvermon;
 
         OpponentOvermon = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyFightSystem>();
 
+    }
+
+    private void DisplayRounds(int Rounds)
+    {
+        RoundText.text = "Rounds" +" "+ Rounds;
     }
 }

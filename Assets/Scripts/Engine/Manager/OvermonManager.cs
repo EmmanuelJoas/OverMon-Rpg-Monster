@@ -56,12 +56,12 @@ public class OvermonManager : ScriptableObject
     /// <summary>
     /// Reference to the hp of the overmon 
     /// </summary>
-    public int HP;
+    public float HP;
 
     /// <summary>
     /// Reference to the hp of the overmon 
     /// </summary>
-    public int MaxHP;
+    public float MaxHP;
 
     /// <summary>
     /// Reference to the attack of the overmon 
@@ -81,12 +81,12 @@ public class OvermonManager : ScriptableObject
     /// <summary>
     /// Reference to the mana points of the overmon 
     /// </summary>
-    public int Mana;
+    public float Mana;
 
     /// <summary>
     /// Reference to the mana points of the overmon 
     /// </summary>
-    public int MaxMana;
+    public float MaxMana;
 
     /// <summary>
     /// Reference of the type(s) of the overmon 

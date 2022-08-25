@@ -8,9 +8,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject SelectOvermonPanel;
 
-    public FightSysteme CurrentOvermon;
+    public static FightSysteme CurrentOvermon;
 
     public static GameManager instance;
+
 
     #endregion
     private void Awake()
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -40,7 +41,6 @@ public class GameManager : MonoBehaviour
         Run_Button.instance.UpdateFighter();
         Normal_AttackButton.instance.UpdateFighter();
         FightManager.instance.UpdateFighther();
-        EnemyFightSystem.instance.UpdateFighter();
     }
 
     public void ActiveSelectPanel()

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5955396440412780155
+--- !u!1 &4945824170052129977
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,54 +8,118 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5955396440412780154}
-  - component: {fileID: 5955396440412780158}
-  - component: {fileID: 5955396440412780159}
-  - component: {fileID: 5955396440412780156}
-  - component: {fileID: 5955396440412780157}
+  - component: {fileID: 3294525329195283777}
+  - component: {fileID: 8073433838166302239}
   m_Layer: 0
   m_Name: Paladin
-  m_TagString: Hero
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &5955396440412780154
+--- !u!224 &3294525329195283777
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5955396440412780155}
+  m_GameObject: {fileID: 4945824170052129977}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5903233948607859934}
+  - {fileID: 5651308477463516445}
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.9375697, y: 0.6733322}
-  m_AnchoredPosition: {x: -0.50001526, y: 0.04248047}
-  m_SizeDelta: {x: -0.99997, y: 0.085}
+  m_AnchorMax: {x: 1, y: 0.586}
+  m_AnchoredPosition: {x: 0.49977112, y: -0.020996094}
+  m_SizeDelta: {x: -0.01, y: 0.042007}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &5955396440412780158
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5955396440412780155}
-  m_CullTransparentMesh: 1
---- !u!114 &5955396440412780159
+--- !u!114 &8073433838166302239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5955396440412780155}
+  m_GameObject: {fileID: 4945824170052129977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0a491f201337b4283a07e4ed500304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyOvermon: {fileID: 0}
+  SliderPvOvermon: {fileID: 0}
+  SliderPaOvermon: {fileID: 0}
+  TextCurrentPvOvermon: {fileID: 0}
+  TextMaxPvOvermon: {fileID: 0}
+  TextCurrentPaOvermon: {fileID: 0}
+  TextMaxPaOvermon: {fileID: 0}
+  TextNameOvermon: {fileID: 0}
+  OvermonFace: {fileID: 0}
+  IsMagic: 0
+  Dead: 0
+  IsMyTurn: 1
+  DamageText: {fileID: 0}
+  ManaPoint: 0
+  AddMana: 0
+--- !u!1 &5651308477463516444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5651308477463516445}
+  - component: {fileID: 5651308477463516441}
+  - component: {fileID: 5651308477463516440}
+  - component: {fileID: 5651308477463516443}
+  m_Layer: 0
+  m_Name: PaladinGraphic
+  m_TagString: Hero
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5651308477463516445
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5651308477463516444}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5558802464498282425}
+  m_Father: {fileID: 3294525329195283777}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.586}
+  m_AnchoredPosition: {x: -0.35673523, y: 35.515144}
+  m_SizeDelta: {x: 0.29600906, y: 70.94628}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5651308477463516441
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5651308477463516444}
+  m_CullTransparentMesh: 1
+--- !u!114 &5651308477463516440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5651308477463516444}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -79,14 +143,14 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &5955396440412780156
+--- !u!95 &5651308477463516443
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5955396440412780155}
+  m_GameObject: {fileID: 5651308477463516444}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3addbb962d15a614fa82ceb5fb3e5df4, type: 2}
@@ -99,34 +163,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5955396440412780157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5955396440412780155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad0a491f201337b4283a07e4ed500304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MyOvermon: {fileID: 11400000, guid: 675ee4759b82382479a0f0bbf81abddb, type: 2}
-  SliderPvOvermon: {fileID: 0}
-  SliderPaOvermon: {fileID: 0}
-  TextCurrentPvOvermon: {fileID: 0}
-  TextMaxPvOvermon: {fileID: 0}
-  TextCurrentPaOvermon: {fileID: 0}
-  TextMaxPaOvermon: {fileID: 0}
-  TextNameOvermon: {fileID: 0}
-  OvermonFace: {fileID: 0}
-  IsMagic: 0
-  Dead: 0
-  IsMyTurn: 1
-  DamageText: {fileID: 0}
-  ManaPoint: 0
-  AddMana: 0
---- !u!1 &8907739519002747225
+--- !u!1 &7446156048717447742
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,9 +171,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5903233948607859934}
-  - component: {fileID: 7670593542395481297}
-  - component: {fileID: 2072444681390573711}
+  - component: {fileID: 5558802464498282425}
+  - component: {fileID: 8555650391550947254}
+  - component: {fileID: 2929001246944232}
   m_Layer: 0
   m_Name: 'DamageDisplayText '
   m_TagString: DamageDisplayText
@@ -144,41 +181,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &5903233948607859934
+--- !u!224 &5558802464498282425
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8907739519002747225}
+  m_GameObject: {fileID: 7446156048717447742}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5955396440412780154}
+  m_Father: {fileID: 5651308477463516445}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.7116027}
   m_AnchorMax: {x: 0.31673554, y: 1}
-  m_AnchoredPosition: {x: -0.8800049, y: 0.051757812}
+  m_AnchoredPosition: {x: -0.8800125, y: 0.051757812}
   m_SizeDelta: {x: -0.448, y: 0.10349}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &7670593542395481297
+--- !u!222 &8555650391550947254
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8907739519002747225}
+  m_GameObject: {fileID: 7446156048717447742}
   m_CullTransparentMesh: 1
---- !u!114 &2072444681390573711
+--- !u!114 &2929001246944232
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8907739519002747225}
+  m_GameObject: {fileID: 7446156048717447742}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}

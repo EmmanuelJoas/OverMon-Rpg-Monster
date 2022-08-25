@@ -32,6 +32,6 @@ public class Special_AttackButton : MonoBehaviour
     }
     public void UpdateFighter()
     {
-        hero = GameManager.instance.CurrentOvermon;
+        hero = GameManager.CurrentOvermon;
     }
 }

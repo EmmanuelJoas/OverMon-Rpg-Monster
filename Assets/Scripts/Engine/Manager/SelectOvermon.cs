@@ -28,7 +28,7 @@ public class SelectOvermon : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("Hero"))
         {
-            GameObject CurrentOvermon = GameObject.FindGameObjectWithTag("Hero");
+            GameObject CurrentOvermon = GameManager.CurrentOvermon.gameObject;
             CurrentOvermon.SetActive(false);
             GameManager.SelectOvermon(Index);
         }

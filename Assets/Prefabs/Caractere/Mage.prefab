@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &731272852477199358
+--- !u!1 &4808888170024585965
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,54 +8,53 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 731272852477199297}
-  - component: {fileID: 731272852477199301}
-  - component: {fileID: 731272852477199298}
-  - component: {fileID: 731272852477199299}
-  - component: {fileID: 731272852477199296}
+  - component: {fileID: 4808888170024585938}
+  - component: {fileID: 4808888170024585942}
+  - component: {fileID: 4808888170024585937}
+  - component: {fileID: 4808888170024585936}
   m_Layer: 0
-  m_Name: Mage
+  m_Name: MageGraphic
   m_TagString: Hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &731272852477199297
+--- !u!224 &4808888170024585938
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731272852477199358}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 4808888170024585965}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8594564847847050731}
-  m_Father: {fileID: 0}
+  - {fileID: 4601726326386525432}
+  m_Father: {fileID: 898574572065050044}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1356734, y: 0}
-  m_AnchorMax: {x: 0.9375697, y: 0.6733322}
-  m_AnchoredPosition: {x: -1, y: 0.04248047}
-  m_SizeDelta: {x: 0, y: 0.08500004}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &731272852477199301
+--- !u!222 &4808888170024585942
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731272852477199358}
+  m_GameObject: {fileID: 4808888170024585965}
   m_CullTransparentMesh: 1
---- !u!114 &731272852477199298
+--- !u!114 &4808888170024585937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731272852477199358}
+  m_GameObject: {fileID: 4808888170024585965}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -79,14 +78,14 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &731272852477199299
+--- !u!95 &4808888170024585936
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731272852477199358}
+  m_GameObject: {fileID: 4808888170024585965}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7a3f22478deefe7418f18874c6b52446, type: 2}
@@ -99,34 +98,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &731272852477199296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731272852477199358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad0a491f201337b4283a07e4ed500304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MyOvermon: {fileID: 11400000, guid: 675ee4759b82382479a0f0bbf81abddb, type: 2}
-  SliderPvOvermon: {fileID: 0}
-  SliderPaOvermon: {fileID: 0}
-  TextCurrentPvOvermon: {fileID: 0}
-  TextMaxPvOvermon: {fileID: 0}
-  TextCurrentPaOvermon: {fileID: 0}
-  TextMaxPaOvermon: {fileID: 0}
-  TextNameOvermon: {fileID: 0}
-  OvermonFace: {fileID: 0}
-  IsMagic: 0
-  Dead: 0
-  IsMyTurn: 1
-  DamageText: {fileID: 0}
-  ManaPoint: 0
-  AddMana: 0
---- !u!1 &4582503127070096682
+--- !u!1 &8575637468627317817
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,9 +106,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8594564847847050731}
-  - component: {fileID: 1084341898200674192}
-  - component: {fileID: 6839309789513664231}
+  - component: {fileID: 4601726326386525432}
+  - component: {fileID: 5158523389530105475}
+  - component: {fileID: 1616940165572251636}
   m_Layer: 0
   m_Name: 'DamageDisplayText '
   m_TagString: DamageDisplayText
@@ -144,41 +116,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &8594564847847050731
+--- !u!224 &4601726326386525432
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582503127070096682}
+  m_GameObject: {fileID: 8575637468627317817}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 731272852477199297}
+  m_Father: {fileID: 4808888170024585938}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.7073974}
   m_AnchorMax: {x: 0.34300002, y: 1}
-  m_AnchoredPosition: {x: -0.25627136, y: 0}
+  m_AnchoredPosition: {x: -0.2562561, y: 0}
   m_SizeDelta: {x: 0.51247, y: -0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1084341898200674192
+--- !u!222 &5158523389530105475
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582503127070096682}
+  m_GameObject: {fileID: 8575637468627317817}
   m_CullTransparentMesh: 1
---- !u!114 &6839309789513664231
+--- !u!114 &1616940165572251636
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582503127070096682}
+  m_GameObject: {fileID: 8575637468627317817}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -206,3 +178,68 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 999
+--- !u!1 &8895142767419962404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 898574572065050044}
+  - component: {fileID: 5210540917803345212}
+  m_Layer: 0
+  m_Name: Mage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &898574572065050044
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895142767419962404}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4808888170024585938}
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.17588909, y: 0}
+  m_AnchorMax: {x: 0.88400006, y: 0.6096966}
+  m_AnchoredPosition: {x: -0.996994, y: -0.019500732}
+  m_SizeDelta: {x: 0.38, y: 0.038986}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5210540917803345212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895142767419962404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0a491f201337b4283a07e4ed500304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyOvermon: {fileID: 0}
+  SliderPvOvermon: {fileID: 0}
+  SliderPaOvermon: {fileID: 0}
+  TextCurrentPvOvermon: {fileID: 0}
+  TextMaxPvOvermon: {fileID: 0}
+  TextCurrentPaOvermon: {fileID: 0}
+  TextMaxPaOvermon: {fileID: 0}
+  TextNameOvermon: {fileID: 0}
+  OvermonFace: {fileID: 0}
+  IsMagic: 0
+  Dead: 0
+  IsMyTurn: 1
+  DamageText: {fileID: 0}
+  ManaPoint: 0
+  AddMana: 0

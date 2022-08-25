@@ -71,7 +71,6 @@ public class EnemyFightSystem : MonoBehaviour
     void Start()
     {
         DisplayInfoOvermon();
-        UpdateFighter();
         FightManager = GameObject.FindGameObjectWithTag("FightManager").GetComponent<FightManager>();
         OpponentAnim = gameObject.GetComponent<Animator>();
         
@@ -80,10 +79,7 @@ public class EnemyFightSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            EnemySelectAttack();
-        }
+        _MyOvermon = GameManager.CurrentOvermon;
     }
 
     #endregion
@@ -100,11 +96,6 @@ public class EnemyFightSystem : MonoBehaviour
         TextNameOvermon.text = OpponentOvermon.name;
 
         OvermonFace.sprite = OpponentOvermon.OvermoneSpriteFace;
-    }
-
-    public void UpdateFighter()
-    {
-        _MyOvermon = GameObject.FindGameObjectWithTag("Hero").GetComponent<FightSysteme>();
     }
 
     public void EnemySelectAttack()
@@ -204,7 +195,7 @@ public class EnemyFightSystem : MonoBehaviour
 
     IEnumerator LateState()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.9f);
         OpponentAnim.SetTrigger("Hit");
         StartCoroutine(DisplayDamage());
     }
