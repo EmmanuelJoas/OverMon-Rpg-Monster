@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lvl: 1
   Xp: 0
+  MaxXp: 10
   OvermonName: Warrior
   OvermonNickName: Arthur
-  HP: 120
-  MaxHP: 120
-  Attack: 6
-  MagicAttack: 16
-  Defence: 5
-  Mana: 20
+  HP: 60
+  MaxHP: 60
+  Attack: 30
+  MagicAttack: 25
+  Defence: 25
+  Mana: 0
   MaxMana: 20
   DescriptionOvermon: 
   Moves: []

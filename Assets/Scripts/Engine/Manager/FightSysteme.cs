@@ -181,6 +181,7 @@ public class FightSysteme : MonoBehaviour
             {
                 SliderPaOvermon.value += AddMana;
             }
+            
         }
 
 
@@ -210,6 +211,7 @@ public class FightSysteme : MonoBehaviour
         }
         TextCurrentPaOvermon.text = SliderPaOvermon.value + "" + "/";
         IsMyTurn = false;
+        IsMagic = false;
         FightManager.NextTurn();
     }
 
@@ -220,53 +222,21 @@ public class FightSysteme : MonoBehaviour
     private void AttackAction(EnemyFightSystem victim)
     {
         
-            OvermonManager Attacker = MyOvermon;
-             victim = _OpponentOvermon;
-            if (IsMagic==false)
-            {
-            /* float multiplier = Random.Range(1.1f,1.5f);
+        OvermonManager Attacker = MyOvermon;
+        victim = _OpponentOvermon;
+        if (IsMagic==false)
+        {
+            Damage = Attacker.Attack * (Attacker.Attack + 100) * 0.08f / (victim.OpponentOvermon.Defence + 8);
+            victim.ReceiveDamage(Mathf.Round(Damage));
+          
 
-                Damage = multiplier * Attacker.Attack;
-
-                float defenseMultiplier = Random.Range(0.5f, 1.2f);
-                //Damage = Mathf.Max(10, (defenseMultiplier * victim.OpponentOvermon.Defence) - Damage);
-                Damage -= (defenseMultiplier * victim.OpponentOvermon.Defence);
-                //victim.ReceiveDamage(Mathf.CeilToInt(Damage));
-                victim.ReceiveDamage(Mathf.Abs(Mathf.Round(Damage)));*/
-
-                //float multiplierAttack = 0.5f;
-
-                //multiplierAttack *= Attacker.Attack;
-
-                //float defenseMultiplier = 0.5f;
-                //Damage = Mathf.Max(5, (defenseMultiplier * victim.MyOvermon.Defence) - Damage);
-                Damage = Attacker.Attack * (100 / (100 + victim.OpponentOvermon.Defence));
-                //victim.ReceiveDamage(Mathf.CeilToInt(Damage));
-                victim.ReceiveDamage(Damage);
-                Debug.Log("Les dommages sont " + Damage);
-
-            }
-            else if (IsMagic==true)
-            {
-            /*float multiplier = Random.Range(1.5f, 2);
-                Damage = multiplier * Attacker.MagicAttack*2;
-                float defenseMultiplier = Random.Range(0.3f, 1.5f);
-                //Damage = Mathf.Max(20, (defenseMultiplier * victim.OpponentOvermon.Defence) - Damage);
-                Damage -=(defenseMultiplier * victim.OpponentOvermon.Defence);
-                //victim.ReceiveDamage(Mathf.CeilToInt(Damage));
-                victim.ReceiveDamage(Mathf.Abs(Mathf.Round(Damage)));*/
-
-                //float multiplierAttack = 0.5f;
-
-                 //multiplierAttack *= Attacker.Attack;
-
-                //float defenseMultiplier = 0.5f;
-                //Damage = Mathf.Max(5, (defenseMultiplier * victim.MyOvermon.Defence) - Damage);
-                Damage = Attacker.Attack * (100 / (100 + victim.OpponentOvermon.Defence));
-                 //victim.ReceiveDamage(Mathf.CeilToInt(Damage));
-                victim.ReceiveDamage(Damage);
-
-            }
+        }
+        if (IsMagic==true)
+        {
+            Damage = Attacker.Attack * (Attacker.MagicAttack + 100) * 0.08f / (victim.OpponentOvermon.Defence + 8);
+            victim.ReceiveDamage(Mathf.Round(Damage));
+           
+        }
 
         
     }

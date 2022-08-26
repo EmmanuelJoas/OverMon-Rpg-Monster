@@ -41,6 +41,11 @@ public class OvermonManager : ScriptableObject
     public float Xp = 0.0f;
 
     /// <summary>
+    /// Reference to number of xp required to pass a level
+    /// </summary>
+    public float MaxXp = 0.0f;
+
+    /// <summary>
     /// Reference to the name of the overmon 
     /// </summary>
     public string OvermonName;

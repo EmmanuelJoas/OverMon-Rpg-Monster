@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0523ea1210eb10b47b3a7f9aadad997a, type: 3}
   m_Name: Paladin
   m_EditorClassIdentifier: 
-  lvl: 1
+  lvl: 2
   Xp: 0
+  MaxXp: 20
   OvermonName: Paladin
   OvermonNickName: Lucie
-  HP: 100
-  MaxHP: 100
-  Attack: 12
-  MagicAttack: 15
+  HP: 28
+  MaxHP: 50
+  Attack: 25
+  MagicAttack: 22
   Defence: 13
-  Mana: 20
+  Mana: 15
   MaxMana: 20
   DescriptionOvermon: 
   Moves: []

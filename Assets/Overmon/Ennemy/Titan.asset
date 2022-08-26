@@ -14,15 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lvl: 1
   Xp: 0
+  MaxXp: 0
   OvermonName: Titan
   OvermonNickName: 
-  HP: 100
-  MaxHP: 100
-  Attack: 150
-  MagicAttack: 150
-  Defence: 40
-  Mana: 10
-  MaxMana: 10
+  HP: 50
+  MaxHP: 50
+  Attack: 20
+  MagicAttack: 16
+  Defence: 20
+  Mana: 20
+  MaxMana: 20
   DescriptionOvermon: 
   Moves:
   - {fileID: 11400000, guid: 2a38587db0ab850498f82dcca7e6e090, type: 2}

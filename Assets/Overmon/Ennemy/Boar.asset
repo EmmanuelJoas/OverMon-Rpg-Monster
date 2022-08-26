@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0523ea1210eb10b47b3a7f9aadad997a, type: 3}
-  m_Name: Bowman
+  m_Name: Boar
   m_EditorClassIdentifier: 
-  lvl: 3
+  lvl: 1
   Xp: 0
-  MaxXp: 40
-  OvermonName: Bowman
-  OvermonNickName: Agata
-  HP: 26
-  MaxHP: 50
+  MaxXp: 0
+  OvermonName: SanglierFou
+  OvermonNickName: 
+  HP: 25
+  MaxHP: 25
   Attack: 15
-  MagicAttack: 26
-  Defence: 15
-  Mana: 15
-  MaxMana: 15
+  MagicAttack: 9
+  Defence: 12
+  Mana: 16
+  MaxMana: 16
   DescriptionOvermon: 
   Moves: []
-  OvermoneSpriteFace: {fileID: 21300000, guid: 577b7003ee662554a9be2bba412a35b7, type: 3}
-  OvermonSpriteGraphic: {fileID: -1147260064, guid: 94eed64fb9a341e4ea5be7f63ae2bf11, type: 3}
+  OvermoneSpriteFace: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  OvermonSpriteGraphic: {fileID: 0}

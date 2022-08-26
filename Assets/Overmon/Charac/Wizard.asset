@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lvl: 1
   Xp: 0
+  MaxXp: 10
   OvermonName: Wizard
   OvermonNickName: Elda
-  HP: 100
-  MaxHP: 100
-  Attack: 50
-  MagicAttack: 15
+  HP: 3
+  MaxHP: 45
+  Attack: 28
+  MagicAttack: 30
   Defence: 16
   Mana: 20
   MaxMana: 20

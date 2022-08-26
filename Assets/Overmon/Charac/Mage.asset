@@ -14,15 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lvl: 1
   Xp: 0
+  MaxXp: 10
   OvermonName: Mage
   OvermonNickName: Merlin
-  HP: 110
-  MaxHP: 110
-  Attack: 10
-  MagicAttack: 10
+  HP: 40
+  MaxHP: 40
+  Attack: 17
+  MagicAttack: 25
   Defence: 10
-  Mana: 70
-  MaxMana: 70
+  Mana: 25
+  MaxMana: 25
   DescriptionOvermon: 
   Moves: []
   OvermoneSpriteFace: {fileID: 21300000, guid: a25bbf00f8aa4144dbf1f510ea8cf2c9, type: 3}

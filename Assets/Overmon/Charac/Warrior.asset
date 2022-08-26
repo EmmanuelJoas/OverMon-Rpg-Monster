@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lvl: 1
   Xp: 0
+  MaxXp: 10
   OvermonName: Warrior
   OvermonNickName: Rown
-  HP: 120
-  MaxHP: 120
-  Attack: 5
-  MagicAttack: 16
-  Defence: 7
+  HP: 55
+  MaxHP: 55
+  Attack: 25
+  MagicAttack: 20
+  Defence: 20
   Mana: 15
   MaxMana: 15
   DescriptionOvermon: 
