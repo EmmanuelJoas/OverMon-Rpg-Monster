@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -12,18 +12,44 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    public GameObject InteractSartPanel;
+
+    public GameObject HeroInBattle;
+
+    public GameObject ActionPanel;
+
+    public GameObject OptionInBattle;
+
+    public Image FaceOponent;
+
+    public Image FaceOvermon;
+
+    public EnemyFightSystem OponentOvermon;
+
+    public GameObject OvermonDataBase;
+
+    public GameObject[] overmonDataBase;
+
+
+
 
     #endregion
     private void Awake()
     {
         instance = this;
-        gameObject.transform.GetChild(0).gameObject.SetActive(true);
-        CurrentOvermon = gameObject.transform.GetChild(0).gameObject.GetComponent<FightSysteme>();
+        for (int i = 0; i < OvermonDataBase.transform.childCount; i++)
+        {
+            overmonDataBase[i] = OvermonDataBase.transform.GetChild(i).gameObject;
+        }
+        
+        overmonDataBase[0].SetActive(true);
+        
+        CurrentOvermon = overmonDataBase[0].GetComponent<FightSysteme>();
     }
     // Start is called before the first frame update
     void Start()
     {
-       
+        OponentOvermon = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyFightSystem>();
     }
 
     // Update is called once per frame
@@ -43,8 +69,26 @@ public class GameManager : MonoBehaviour
         FightManager.instance.UpdateFighther();
     }
 
-    public void ActiveSelectPanel()
+    public void SetHeroInBattle()
     {
-        SelectOvermonPanel.SetActive(true);
+        CurrentOvermon.transform.SetParent(HeroInBattle.transform);
+        CurrentOvermon.transform.position = HeroInBattle.transform.position;
+        SelectOvermonPanel.SetActive(false);
+        StartCoroutine(StartBattle());
+    }
+
+    IEnumerator StartBattle()
+    {
+        FaceOvermon.sprite=CurrentOvermon.MyOvermon.OvermoneSpriteFace;
+        FaceOponent.sprite = OponentOvermon.OpponentOvermon.OvermoneSpriteFace;
+        yield return new WaitForSeconds(0.5f);
+        InteractSartPanel.SetActive(true);
+        ActionPanel.SetActive(false);
+        OptionInBattle.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        InteractSartPanel.SetActive(false);
+        OptionInBattle.SetActive(true);
+        ActionPanel.SetActive(true);
+
     }
 }

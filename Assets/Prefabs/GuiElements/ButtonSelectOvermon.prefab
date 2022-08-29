@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 5520361020864848148}
   - component: {fileID: 2260256235814151225}
   m_Layer: 0
-  m_Name: SelectOvermon
+  m_Name: ButtonSelectOvermon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

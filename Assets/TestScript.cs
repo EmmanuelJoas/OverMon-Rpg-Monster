@@ -5,7 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class TestScript : MonoBehaviour
 {
- public void LoadScene()
+    public GameManager GameManager;
+    public GameObject TestObject;
+    public GameObject selectHero;
+
+    public void SetObject()
     {
         SceneManager.LoadScene("BattleScene");
     }

@@ -43,6 +43,7 @@ public class FightManager : MonoBehaviour
     {
         UpdateFighther();
         NextTurn();
+        battleMenu.SetActive(false);
 
     }
 
