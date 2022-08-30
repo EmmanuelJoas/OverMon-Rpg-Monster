@@ -11,6 +11,6 @@ public class TestScript : MonoBehaviour
 
     public void SetObject()
     {
-        SceneManager.LoadScene("BattleScene");
+        SceneManager.LoadScene("StartCity");
     }
 }

@@ -203,15 +203,23 @@ public class FightSysteme : MonoBehaviour
                 }
                 SliderPaOvermon.value -= ManaPoint;
             }
-            
+            else
+            {
+                return;
+            }
+           
         }
         else
         {
             Debug.Log("Run");
         }
+
         TextCurrentPaOvermon.text = SliderPaOvermon.value + "" + "/";
+
         IsMyTurn = false;
+
         IsMagic = false;
+
         FightManager.NextTurn();
     }
 
@@ -300,15 +308,6 @@ public class FightSysteme : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
         DamageText.SetActive(false);
        
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <returns></returns>
-    public bool GetDead()
-    {
-        return Dead;
     }
 
     /// <summary>

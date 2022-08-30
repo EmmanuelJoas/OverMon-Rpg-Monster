@@ -6,34 +6,76 @@ public class GameManager : MonoBehaviour
 {
     #region Variables
 
+    /// <summary>
+    /// 
+    /// </summary>
     public GameObject SelectOvermonPanel;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public static FightSysteme CurrentOvermon;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public static GameManager instance;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public GameObject InteractSartPanel;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public GameObject HeroInBattle;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public GameObject ActionPanel;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public GameObject OptionInBattle;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public Image FaceOponent;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public Image FaceOvermon;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public EnemyFightSystem OponentOvermon;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public GameObject OvermonDataBase;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public GameObject[] overmonDataBase;
 
-
-
+    /// <summary>
+    /// 
+    /// </summary>
+    public Sprite[] BackGrounds;
 
     #endregion
+
+    /// <summary>
+    /// 
+    /// </summary>
     private void Awake()
     {
         instance = this;
@@ -46,22 +88,32 @@ public class GameManager : MonoBehaviour
         
         CurrentOvermon = overmonDataBase[0].GetComponent<FightSysteme>();
     }
-    // Start is called before the first frame update
+
+    /// <summary>
+    /// Start is called before the first frame update
+    /// </summary>
     void Start()
     {
         OponentOvermon = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyFightSystem>();
+        
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame
+    /// </summary>
     void Update()
     {
         
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="Index"></param>
     public void SelectOvermon(int Index)
     {
-        gameObject.transform.GetChild(Index).gameObject.SetActive(true);
-        CurrentOvermon=gameObject.transform.GetChild(Index).gameObject.GetComponent<FightSysteme>();
+        overmonDataBase[Index].SetActive(true);
+        CurrentOvermon = overmonDataBase[Index].GetComponent<FightSysteme>();
         CurrentOvermon.DisplayInfoOvermon();
         Special_AttackButton.instance.UpdateFighter();
         Run_Button.instance.UpdateFighter();
@@ -69,6 +121,9 @@ public class GameManager : MonoBehaviour
         FightManager.instance.UpdateFighther();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public void SetHeroInBattle()
     {
         CurrentOvermon.transform.SetParent(HeroInBattle.transform);
@@ -77,6 +132,10 @@ public class GameManager : MonoBehaviour
         StartCoroutine(StartBattle());
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     IEnumerator StartBattle()
     {
         FaceOvermon.sprite=CurrentOvermon.MyOvermon.OvermoneSpriteFace;
