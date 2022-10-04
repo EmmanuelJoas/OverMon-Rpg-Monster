@@ -5,12 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class TestScript : MonoBehaviour
 {
-    public GameManager GameManager;
-    public GameObject TestObject;
-    public GameObject selectHero;
-
-    public void SetObject()
-    {
-        SceneManager.LoadScene("StartCity");
-    }
+  public void SetHeroInFight()
+  {
+        //EventManager.eventManager.SetOvermonInBattle();
+  }
 }

@@ -45,7 +45,7 @@ public class EnemyFightSystem : MonoBehaviour
 
     public bool Dead = false;
 
-    private FightManager FightManager;
+    private BattleManager battleManager;
 
     public GameObject DamageText;
 
@@ -63,15 +63,9 @@ public class EnemyFightSystem : MonoBehaviour
     void Start()
     {
         DisplayInfoOvermon();
-        FightManager = GameObject.FindGameObjectWithTag("FightManager").GetComponent<FightManager>();
-        
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        _MyOvermon = GameManager.CurrentOvermon;
+        battleManager = GameObject.FindGameObjectWithTag("FightManager").GetComponent<BattleManager>();
+        SliderPaOvermon.maxValue = OpponentOvermon.MaxMana;
+        SliderPaOvermon.value = OpponentOvermon.Mana;
     }
 
     #endregion
@@ -82,8 +76,7 @@ public class EnemyFightSystem : MonoBehaviour
     {
         SliderPvOvermon.maxValue = OpponentOvermon.MaxHP;
         SliderPvOvermon.value = OpponentOvermon.HP;
-        SliderPaOvermon.maxValue = OpponentOvermon.MaxMana;
-        SliderPaOvermon.value = OpponentOvermon.Mana;
+       
 
         TextNameOvermon.text = OpponentOvermon.name;
 
@@ -92,6 +85,7 @@ public class EnemyFightSystem : MonoBehaviour
 
     public void EnemySelectAttack()
     {
+        _MyOvermon = BattleManager.battleManager.MyOvermon;
         Victim = _MyOvermon;
        
         if (SliderPaOvermon.value < ManaPoint)
@@ -109,8 +103,8 @@ public class EnemyFightSystem : MonoBehaviour
         }
         IsSuperAttack = false;
         Victim.IsMyTurn = true;
-        FightManager.battleMenu.SetActive(true);
-        FightManager.NextTurn();
+       BattleManager.battleManager.combatOptionMenu.SetActive(true);
+       BattleManager.battleManager.NextTurn();
 
     }
     public void EnemyAttackAction(FightSysteme victim)

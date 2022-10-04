@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Warrior2
   m_EditorClassIdentifier: 
   lvl: 1
-  Xp: 0
+  Xp: 5
   MaxXp: 10
   OvermonName: Warrior
   OvermonNickName: Arthur
@@ -22,7 +22,7 @@ MonoBehaviour:
   Attack: 30
   MagicAttack: 25
   Defence: 25
-  Mana: 0
+  Mana: 20
   MaxMana: 20
   DescriptionOvermon: 
   Moves: []

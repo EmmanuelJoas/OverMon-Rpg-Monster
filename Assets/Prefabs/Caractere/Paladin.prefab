@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3294525329195283777}
   - component: {fileID: 8073433838166302239}
+  - component: {fileID: 1618485300}
   m_Layer: 0
   m_Name: Paladin
-  m_TagString: Untagged
+  m_TagString: Hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,7 +51,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0a491f201337b4283a07e4ed500304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyOvermon: {fileID: 0}
+  MyOvermon: {fileID: 11400000, guid: 675ee4759b82382479a0f0bbf81abddb, type: 2}
+  Dead: 0
+  IsMyTurn: 1
+  ManaPoint: 15
+  AddMana: 5
+  BattlePosition: {fileID: 0}
+--- !u!114 &1618485300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4945824170052129977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d27fc004b63b520458df4d72939623f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OvermonAnim: {fileID: 5651308477463516443}
   SliderPvOvermon: {fileID: 0}
   SliderPaOvermon: {fileID: 0}
   TextCurrentPvOvermon: {fileID: 0}
@@ -59,12 +78,6 @@ MonoBehaviour:
   TextMaxPaOvermon: {fileID: 0}
   TextNameOvermon: {fileID: 0}
   OvermonFace: {fileID: 0}
-  IsMagic: 0
-  Dead: 0
-  IsMyTurn: 1
-  DamageText: {fileID: 0}
-  ManaPoint: 0
-  AddMana: 0
 --- !u!1 &5651308477463516444
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,14 +108,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5558802464498282425}
+  m_Children: []
   m_Father: {fileID: 3294525329195283777}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.586}
-  m_AnchoredPosition: {x: -0.35673523, y: 35.515144}
+  m_AnchoredPosition: {x: -0.35681152, y: 35.515137}
   m_SizeDelta: {x: 0.29600906, y: 70.94628}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5651308477463516441
@@ -163,83 +175,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &7446156048717447742
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5558802464498282425}
-  - component: {fileID: 8555650391550947254}
-  - component: {fileID: 2929001246944232}
-  m_Layer: 0
-  m_Name: 'DamageDisplayText '
-  m_TagString: DamageDisplayText
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &5558802464498282425
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7446156048717447742}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5651308477463516445}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.7116027}
-  m_AnchorMax: {x: 0.31673554, y: 1}
-  m_AnchoredPosition: {x: -0.8800125, y: 0.051757812}
-  m_SizeDelta: {x: -0.448, y: 0.10349}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &8555650391550947254
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7446156048717447742}
-  m_CullTransparentMesh: 1
---- !u!114 &2929001246944232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7446156048717447742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.9716981, g: 0.050418302, b: 0.050418302, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: b3fc05cb50a40524f9b411fb6e9a49ce, type: 3}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 999

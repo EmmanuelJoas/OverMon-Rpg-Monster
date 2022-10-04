@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Warrior
   m_EditorClassIdentifier: 
   lvl: 1
-  Xp: 0
+  Xp: 5
   MaxXp: 10
   OvermonName: Warrior
   OvermonNickName: Rown

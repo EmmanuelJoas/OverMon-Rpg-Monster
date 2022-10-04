@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using System;
+using DG.Tweening;
 
 public class FightSysteme : MonoBehaviour
 {
@@ -16,52 +17,7 @@ public class FightSysteme : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    public Animator OvermonAnim;
-
-    /// <summary>
-    /// 
-    /// </summary>
     private EnemyFightSystem _OpponentOvermon;
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public Slider SliderPvOvermon;
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public Slider SliderPaOvermon;
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public Text TextCurrentPvOvermon;
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public Text TextMaxPvOvermon;
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public Text TextCurrentPaOvermon;
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public Text TextMaxPaOvermon;
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public Text TextNameOvermon;
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public Image OvermonFace;
 
     /// <summary>
     /// 
@@ -91,16 +47,6 @@ public class FightSysteme : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    private FightManager FightManager;
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public GameObject DamageText;
-
-    /// <summary>
-    /// 
-    /// </summary>
     public int ManaPoint;
 
     /// <summary>
@@ -108,27 +54,11 @@ public class FightSysteme : MonoBehaviour
     /// </summary>
     public int AddMana;
 
+    public Transform BattlePosition;
+
     #endregion
 
     #region Unity Function
-
-    /// <summary>
-    /// 
-    /// </summary>
-    private void Awake()
-    {
-        OvermonAnim = gameObject.transform.GetChild(0).GetComponent<Animator>();
-        FightManager = GameObject.FindGameObjectWithTag("FightManager").GetComponent<FightManager>();
-        DamageText = GameObject.FindGameObjectWithTag("DamageDisplayText");
-        OvermonFace = GameObject.FindGameObjectWithTag("ImageProfile").GetComponent<Image>();
-        SliderPvOvermon = GameObject.FindGameObjectWithTag("PvSlider").GetComponent<Slider>();
-        SliderPaOvermon = GameObject.FindGameObjectWithTag("ManaSlider").GetComponent<Slider>();
-        TextMaxPvOvermon = GameObject.FindGameObjectWithTag("MaxPv").GetComponent<Text>();
-        TextCurrentPvOvermon = GameObject.FindGameObjectWithTag("CurrentPv").GetComponent<Text>();
-        TextMaxPaOvermon = GameObject.FindGameObjectWithTag("MaxMana").GetComponent<Text>();
-        TextCurrentPaOvermon = GameObject.FindGameObjectWithTag("CurrentMana").GetComponent<Text>();
-        TextNameOvermon = GameObject.FindGameObjectWithTag("MyOvername").GetComponent<Text>();
-    }
 
     /// <summary>
     /// Start is called before the first frame update
@@ -136,92 +66,77 @@ public class FightSysteme : MonoBehaviour
     void Start()
     {
         _OpponentOvermon = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyFightSystem>();
-        DamageText.SetActive(false);
-        DisplayInfoOvermon();
+        Victim = _OpponentOvermon;
     }
+
+    private void OnEnable()
+    {
+       
+    }
+
+    private void OnDisable()
+    {
+        EventManager.eventManager.ClickAction_NormalAttack -= Normal_AttckButton;
+        EventManager.eventManager.ClickAction_SpecialAttack -= Special_AttckButton;
+    }
+
 
     #endregion
 
     #region My Private Function 
 
-    /// <summary>
-    /// 
-    /// </summary>
-   public void DisplayInfoOvermon()
-   {
-         SliderPvOvermon.maxValue=MyOvermon.MaxHP;
-         SliderPvOvermon.value = MyOvermon.HP;
-         SliderPaOvermon.maxValue = MyOvermon.MaxMana;
-         SliderPaOvermon.value = MyOvermon.Mana;
+     /// <summary>
+     /// 
+     /// </summary>
+     public void Normal_AttckButton(object sender , EventArgs e)
+     {
+         
+         DisplayInfoOfPlayer.displayInfoOfPlayer.OvermonAnim.SetTrigger("IsAttack1");
+         AttackAction(Victim);
+          if (DisplayInfoOfPlayer.displayInfoOfPlayer.SliderPaOvermon.value<DisplayInfoOfPlayer.displayInfoOfPlayer.SliderPaOvermon.maxValue)
+          {
+             DisplayInfoOfPlayer.displayInfoOfPlayer.SliderPaOvermon.value += AddMana;
+          }
 
-         TextMaxPvOvermon.text = MyOvermon.MaxHP + "" + "Pv";
-         TextCurrentPvOvermon.text = MyOvermon.HP + "" + "/";
-         TextMaxPaOvermon.text = MyOvermon.MaxMana + "" + "Pa";
-         TextCurrentPaOvermon.text = MyOvermon.Mana + "" + "/";
+        IsMyTurn = false;
 
-         TextNameOvermon.text = MyOvermon.OvermonNickName;
+        BattleManager.battleManager.NextTurn();
 
-         OvermonFace.sprite = MyOvermon.OvermoneSpriteFace;
-   }
+     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="btn"></param>
-    public void SelectAttack(string btn)
-    {
-        Victim = _OpponentOvermon;
-        
-        if (btn == "Normal_AttckButton")
-        {
-
-            OvermonAnim.SetTrigger("IsAttack1");
-            AttackAction(Victim);
-            if (SliderPaOvermon.value < SliderPaOvermon.maxValue)
-            {
-                SliderPaOvermon.value += AddMana;
-            }
-            
-        }
-
-
-        else if (btn == "Special_AttckButton")
-        {
-            if (SliderPaOvermon.value >= ManaPoint)
+     /// <summary>
+     /// 
+     /// </summary>
+     public void Special_AttckButton(object sender ,EventArgs e)
+     {
+          if (DisplayInfoOfPlayer.displayInfoOfPlayer.SliderPaOvermon.value >= ManaPoint)
             {
                 if (gameObject.name == "Warrior" || gameObject.name == "Warrior2")
                 {
-                SelectSkills(Mathf.Round(Damage));
-                OvermonAnim.SetTrigger("IsAttack2");
+                    SelectSkills(Mathf.Round(Damage));
+                    DisplayInfoOfPlayer.displayInfoOfPlayer.OvermonAnim.SetTrigger("IsAttack2");
               
                 }
                 else
-                {   
-                IsMagic = true;
-                OvermonAnim.SetTrigger("IsAttack2");
-                AttackAction(Victim);
+                {
+                    IsMagic = true;
+                    DisplayInfoOfPlayer.displayInfoOfPlayer.OvermonAnim.SetTrigger("IsAttack2");
+                    AttackAction(Victim);
                 }
-                SliderPaOvermon.value -= ManaPoint;
-            }
-            else
-            {
+                    DisplayInfoOfPlayer.displayInfoOfPlayer.SliderPaOvermon.value -= ManaPoint;
+          }
+          else
+          {
                 return;
-            }
-           
-        }
-        else
-        {
-            Debug.Log("Run");
-        }
-
-        TextCurrentPaOvermon.text = SliderPaOvermon.value + "" + "/";
+          }
+        DisplayInfoOfPlayer.displayInfoOfPlayer.TextCurrentPaOvermon.text = DisplayInfoOfPlayer.displayInfoOfPlayer.SliderPaOvermon.value + "" + "/";
 
         IsMyTurn = false;
 
         IsMagic = false;
 
-        FightManager.NextTurn();
-    }
+        BattleManager.battleManager.NextTurn();
+     }
 
     /// <summary>
     /// 
@@ -236,17 +151,13 @@ public class FightSysteme : MonoBehaviour
         {
             Damage = Attacker.Attack * (Attacker.Attack + 100) * 0.08f / (victim.OpponentOvermon.Defence + 8);
             victim.ReceiveDamage(Mathf.Round(Damage));
-          
-
+     
         }
         if (IsMagic==true)
         {
             Damage = Attacker.Attack * (Attacker.MagicAttack + 100) * 0.08f / (victim.OpponentOvermon.Defence + 8);
-            victim.ReceiveDamage(Mathf.Round(Damage));
-           
+            victim.ReceiveDamage(Mathf.Round(Damage)); 
         }
-
-        
     }
 
     /// <summary>
@@ -256,9 +167,8 @@ public class FightSysteme : MonoBehaviour
     public void ReceiveDamage(float damage)
     {
         float CurrentDamage = damage;
-        SliderPvOvermon.value -= CurrentDamage;
-        DamageText.GetComponent<Text>().text = CurrentDamage + "";
-        if (SliderPvOvermon.value <= 0)
+        DisplayInfoOfPlayer.displayInfoOfPlayer.SliderPvOvermon.value -= CurrentDamage;
+        if (DisplayInfoOfPlayer.displayInfoOfPlayer.SliderPvOvermon.value <= 0)
         {
             Debug.Log("est mort");
             Dead = true;
@@ -277,11 +187,11 @@ public class FightSysteme : MonoBehaviour
     /// <param name="Heal"></param>
     public void SelectSkills(float Heal)
     {
-        if (SliderPvOvermon.value < SliderPvOvermon.maxValue)
+        if (DisplayInfoOfPlayer.displayInfoOfPlayer.SliderPvOvermon.value < DisplayInfoOfPlayer.displayInfoOfPlayer.SliderPvOvermon.maxValue)
         {
             float CurrentHeal = Heal;
-            SliderPvOvermon.value += CurrentHeal;
-            TextCurrentPvOvermon.text = SliderPvOvermon.value + "" + "/";
+            DisplayInfoOfPlayer.displayInfoOfPlayer.SliderPvOvermon.value += CurrentHeal;
+            DisplayInfoOfPlayer.displayInfoOfPlayer.TextCurrentPvOvermon.text = DisplayInfoOfPlayer.displayInfoOfPlayer.SliderPvOvermon.value + "" + "/";
         }
        
     }
@@ -293,21 +203,10 @@ public class FightSysteme : MonoBehaviour
     IEnumerator LateState()
     {
          yield return new WaitForSeconds(0.9f);
-         OvermonAnim.SetTrigger("Hit");
-         TextCurrentPvOvermon.text = SliderPvOvermon.value + "" + "/";
-         StartCoroutine(DisplayDamage());
-    }
+        DisplayInfoOfPlayer.displayInfoOfPlayer.OvermonAnim.SetTrigger("Hit");
+        DisplayInfoOfPlayer.displayInfoOfPlayer.TextCurrentPvOvermon.text = DisplayInfoOfPlayer.displayInfoOfPlayer.SliderPvOvermon.value + "" + "/";
+        //DisplayInfoOfPlayer.displayInfoOfPlayer.DisplayDamageInTheScene(Damage);
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator DisplayDamage()
-    {
-        DamageText.SetActive(true);
-        yield return new WaitForSeconds(0.8f);
-        DamageText.SetActive(false);
-       
     }
 
     /// <summary>
@@ -315,8 +214,8 @@ public class FightSysteme : MonoBehaviour
     /// </summary>
     void SaveState()
     {
-        MyOvermon.HP = SliderPvOvermon.value;
-        MyOvermon.Mana = SliderPaOvermon.value;
+        //MyOvermon.HP = DisplayInfoOfPlayer.displayInfoOfPlayer.SliderPvOvermon.value;
+        //MyOvermon.Mana = DisplayInfoOfPlayer.displayInfoOfPlayer.SliderPaOvermon.value;
     }
     #endregion
 }

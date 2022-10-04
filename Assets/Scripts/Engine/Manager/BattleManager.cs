@@ -2,15 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
-public class FightManager : MonoBehaviour
+public class BattleManager : MonoBehaviour
 {
-    
+
+    public GameObject WhereIsMyOvermon;
+
+    public GameObject WhereIsMyOpponentOvermon;
+
     public FightSysteme MyOvermon;
 
-    private EnemyFightSystem OpponentOvermon;
+    public EnemyFightSystem OpponentOvermon;
 
-    public GameObject battleMenu;
+    public GameObject combatOptionMenu;
 
     private int RoundsNumber = 0;
 
@@ -28,7 +33,7 @@ public class FightManager : MonoBehaviour
 
     public Text NameTextOvermon;
 
-    public static FightManager instance;
+    public static BattleManager battleManager;
 
    
 
@@ -36,15 +41,12 @@ public class FightManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        battleManager = this;
     }
 
     void Start()
     {
-        UpdateFighther();
-        NextTurn();
-        battleMenu.SetActive(false);
-
+        EventManager.eventManager.UpdateFighterInTheScene += UpdateFighther;
     }
 
     public void NextTurn()
@@ -53,7 +55,7 @@ public class FightManager : MonoBehaviour
         {
             if (MyOvermon.IsMyTurn == true)
             {
-                battleMenu.SetActive(true);
+                combatOptionMenu.SetActive(true);
                
             }
             else if (MyOvermon.IsMyTurn == false)
@@ -79,7 +81,7 @@ public class FightManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.4f);
         OpponentOvermon.EnemySelectAttack();
-        battleMenu.SetActive(false);
+        combatOptionMenu.SetActive(false);
         yield return new WaitForSeconds(1.4f);
         MyOvermon.IsMyTurn = true;
         yield return new WaitForSeconds(0.9f);
@@ -89,11 +91,11 @@ public class FightManager : MonoBehaviour
 
     }
 
-    public void UpdateFighther()
+    public void UpdateFighther(object sender , EventArgs e)
     {
-        MyOvermon = GameManager.CurrentOvermon;
+        MyOvermon = WhereIsMyOvermon.transform.GetChild(0).GetComponent<FightSysteme>();
 
-        OpponentOvermon = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyFightSystem>();
+        OpponentOvermon = WhereIsMyOpponentOvermon.transform.GetChild(0).GetComponent<EnemyFightSystem>();
 
         LvlText.text = "" + MyOvermon.MyOvermon.lvl;
 
@@ -104,7 +106,6 @@ public class FightManager : MonoBehaviour
         XpSlider.value = MyOvermon.MyOvermon.Xp;
 
         XpSlider.maxValue = MyOvermon.MyOvermon.MaxXp;
-
     }
 
     private void DisplayRounds(int Rounds)
@@ -114,7 +115,7 @@ public class FightManager : MonoBehaviour
 
     IEnumerator EndBattleVictoire()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         EndFightPanel.SetActive(true);
         EndFightText.text = "Victoire";
         yield return new WaitForSeconds(0.2f);

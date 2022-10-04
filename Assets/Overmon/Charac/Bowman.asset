@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0523ea1210eb10b47b3a7f9aadad997a, type: 3}
   m_Name: Bowman
   m_EditorClassIdentifier: 
-  lvl: 3
-  Xp: 0
-  MaxXp: 40
+  lvl: 1
+  Xp: 20
+  MaxXp: 80
   OvermonName: Bowman
   OvermonNickName: Agata
-  HP: 26
+  HP: 50
   MaxHP: 50
   Attack: 15
   MagicAttack: 26

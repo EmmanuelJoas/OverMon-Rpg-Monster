@@ -21,28 +21,6 @@ public class SelectAction : MonoBehaviour
         
     }
 
-    public void AttachCallback(string btn,FightSysteme Hero)
-    {
-        btn = temp;
-        Hero = hero;
-        if (btn=="Normal_AttckButton")
-        {
-            UpdateFighter();
-            Hero.SelectAttack("Normal_AttckButton");
-            
-        }
-        else if (btn=="Special_AttckButton")
-        {
-            UpdateFighter();
-            Hero.SelectAttack("Special_AttckButton");
-           
-        }
-        else
-        {
-            Hero.SelectAttack("run");
-            
-        }
-    }
 
     public void UpdateFighter()
     {
